@@ -1,4 +1,4 @@
-from coffee_book.models import ShopUser, Coffee, BrewMethod, Passport, Review
+from coffee_book.models import ShopUser, Coffee, BrewMethod, Review
 from rest_framework import serializers
 
 class ShopUserSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,12 +16,7 @@ class BrewMethodSerializer(serializers.HyperlinkedModelSerializer):
         model = BrewMethod
         fields = ('id', 'url', 'name', 'coffees')
 
-class PassportSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Passport
-        fields = ('id', 'url', 'coffees', 'reviews')
-
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Review
-        fields = ('id', 'url', 'review', 'passport', 'coffees')
+        fields = ('id', 'url', 'review', 'coffee')

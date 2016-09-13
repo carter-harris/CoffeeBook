@@ -16,8 +16,9 @@ from rest_framework.reverse import reverse
 
 
 
-from coffe_book.models import ShopUser, Coffee, BrewMethod, Passport, Review
-from coffe_book.serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, PassportSerializer, ReviewSerializer
+from .models import ShopUser, Coffee, BrewMethod, Review
+from .serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer
+
 
 class ShopUserView(viewsets.ModelViewSet):
     queryset = ShopUser.objects.all()
@@ -30,10 +31,6 @@ class CoffeeView(viewsets.ModelViewSet):
 class BrewMethodView(viewsets.ModelViewSet):
     queryset = BrewMethod.objects.all()
     serializer_class = BrewMethodSerializer
-
-class PassportView(viewsets.ModelViewSet):
-    queryset = Passport.objects.all()
-    serializer_class = PassportSerializer
 
 class ReviewView(viewsets.ModelViewSet):
     queryset = Review.objects.all()
