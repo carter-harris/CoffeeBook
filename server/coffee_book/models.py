@@ -19,8 +19,7 @@ class Coffee(models.Model):
     description = models.CharField()
     brew_method = models.ForeignKey(BrewMethod, related_name='coffees')
     shop_user = models.ForeignKey(ShopUser, related_name='coffees')
-    # image = models.ImageField(upload_to = 'coffee_images/', default = 'coffee_images/default_coffee_image.whatever')
-    # image = models.ImageField(upload_to = 'player_images/', default = 'player_images/default_player_image.jpg')
+    img = models.ImageField(upload_to = 'coffee_images/', default = 'coffee_images/default_coffee_image.whatever')
 
     def __str__(self):
         return "{}: {}".format(self.id, self.name)

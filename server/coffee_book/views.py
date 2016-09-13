@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 import json
 
-
+#
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,8 +16,8 @@ from rest_framework.reverse import reverse
 
 
 
-from music_history.models import ShopUser, Coffee, BrewMethod, Passport, Review
-from music_history.serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, PassportSerializer, ReviewSerializer
+from coffe_book.models import ShopUser, Coffee, BrewMethod, Passport, Review
+from coffe_book.serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, PassportSerializer, ReviewSerializer
 
 class ShopUserView(viewsets.ModelViewSet):
     queryset = ShopUser.objects.all()
