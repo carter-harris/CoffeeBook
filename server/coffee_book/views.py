@@ -14,8 +14,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from .models import ShopUser, Coffee, BrewMethod, Review
-from .serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer
+from .models import User, ShopUser, Coffee, BrewMethod, Review, Region
+from .serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer, UserSerializer, RegionSerializer
 
 
 
@@ -43,6 +43,11 @@ class CoffeeView(viewsets.ModelViewSet):
 class BrewMethodView(viewsets.ModelViewSet):
     queryset = BrewMethod.objects.all()
     serializer_class = BrewMethodSerializer
+
+
+class RegionView(viewsets.ModelViewSet):
+    queryset = Region.objects.all()
+    serializer_class = RegionSerializer
 
 
 class ReviewView(viewsets.ModelViewSet):
@@ -136,21 +141,21 @@ def create_user_object(request):
         return Http404
 
 
-def login_user(request):
-    data = json.loads(request.body.decode())
+# def login_user(request):
+#     data = json.loads(request.body.decode())
 
-    username = data['username']
-    password = data['password']
+#     username = data['username']
+#     password = data['password']
 
-    user = authenticate(username=username, password=password)
-    # login(user)
+#     user = authenticate(username=username, password=password)
+#     # login(user)
 
-    if user is not None:
-        login(request, user)
-        # print('login user', request.user)
-        return HttpResponseRedirect('/')
-    else:
-        return Http404
+#     if user is not None:
+#         login(request, user)
+#         # print('login user', request.user)
+#         return HttpResponseRedirect('/')
+#     else:
+#         return Http404
 
 
 ##############################################
