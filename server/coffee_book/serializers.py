@@ -1,5 +1,11 @@
-from coffee_book.models import ShopUser, Coffee, BrewMethod, Review
 from rest_framework import serializers
+from django.contrib.auth.models import User
+from coffee_book.models import ShopUser, Coffee, BrewMethod, Review
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'shop')
 
 class ShopUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -10,14 +10,19 @@ class ShopUser(User):
     # name = models.CharField(max_length=25)
     location = models.CharField(max_length=200)
 
-
+    # This representation is used any time a base string representation
+    # is needed, such as the web browseable API interface provide by
+    # the framework.
+    def __str__(self):
+      return "{}: {}".format(self.id, self.name)
 
 
 
 class BrewMethod(models.Model):
     name = models.CharField(max_length=25)
 
-
+    def __str__(self):
+      return "{}: {}".format(self.id, self.name)
 
 
 class Coffee(models.Model):
@@ -30,15 +35,18 @@ class Coffee(models.Model):
     description = models.TextField()
     brew_method = models.ForeignKey(BrewMethod, choices=brew_methods, null=True, on_delete=models.SET_NULL, related_name='coffees')
     shop_user = models.ForeignKey(ShopUser, null=True, on_delete=models.SET_NULL, related_name='coffees')
+    # owner = models.ForeignKey('ShopUser', related_name='shop_user')
     img = models.ImageField(upload_to='coffee_images/', default='coffee_images/default_coffee_image.whatever')
 
-
-
+    def __str__(self):
+      return "{}: {}".format(self.id, self.name)
 
 
 class Review(models.Model):
     review = models.TextField()
     owner = models.ForeignKey(User, related_name='review_owner')
+    # owner = models.ForeignKey('auth.User', related_name='user')
     coffee = models.ForeignKey(Coffee, null=True, on_delete=models.SET_NULL, related_name='reviews')
 
-
+    def __str__(self):
+      return "{}: {}".format(self.id, self.name)
