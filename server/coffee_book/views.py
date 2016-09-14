@@ -23,6 +23,11 @@ from .serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSeriali
 #####################################################################################
 #   CLASSES SECTION    #
 
+class UserList(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class ShopUserView(viewsets.ModelViewSet):
     queryset = ShopUser.objects.all()
     serializer_class = ShopUserSerializer
@@ -49,7 +54,6 @@ class ReviewView(viewsets.ModelViewSet):
 
 #####################################################################################
 #   FUNCTIONS SECTION   #
-
 
 ##############################################
 ###               Login User               ###
