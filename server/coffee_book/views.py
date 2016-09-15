@@ -8,36 +8,29 @@ from django.views.decorators.csrf import csrf_exempt
 
 import json
 
-from rest_framework import permissions
+# from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from .models import User, ShopUser, Coffee, BrewMethod, Review, Region
-from .serializers import ShopUserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer, UserSerializer, RegionSerializer
-
+from .models import User, Coffee, BrewMethod, Review, Region
+from .serializers import UserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer, RegionSerializer
+# from .permissions import IsShopOwner
 
 
 
 #####################################################################################
 #   CLASSES SECTION    #
 
-class UserList(viewsets.ModelViewSet):
+class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-
-class ShopUserView(viewsets.ModelViewSet):
-    queryset = ShopUser.objects.all()
-    serializer_class = ShopUserSerializer
-
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 class CoffeeView(viewsets.ModelViewSet):
     queryset = Coffee.objects.all()
     serializer_class = CoffeeSerializer
+    # permission_classes = (IsShopOwner,)
 
 
 class BrewMethodView(viewsets.ModelViewSet):
@@ -53,12 +46,75 @@ class RegionView(viewsets.ModelViewSet):
 class ReviewView(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-
-
+    # permission_classes = (IsShopOwner,)
 
 
 #####################################################################################
 #   FUNCTIONS SECTION   #
+
+##############################################
+###              CREATE USER               ###
+##############################################
+def create_user_object(request):
+    '''
+        Function to catch registration of user from login.html.
+        Upon form submission, the values of the fields are passed in via the arg 'request'
+        and then set to variables below.
+
+        Following we create a user by setting the variables passed in the the create_user function
+        below and then we save it to our database.
+
+        Args:
+            'request' - the values passed in as string via the $http call from associated ctrl of html views on Angular
+    '''
+
+    # req_body = imported json and using the .loads() function, passed in the
+    # argument - the decoded body of the request to be posted which is
+
+    # Load the JSON string of the request body into a dict
+    req_body = json.loads(request.body.decode())
+
+    # ASSIGNS CORRESPONDING OBJ VALUE TO A VARIABLE
+    username =  req_body['username']
+    password = req_body['password']
+    email = req_body['email']
+    first_name = req_body['first_name']
+    last_name = req_body['last_name']
+    shop_name = req_body['shop_name']
+    location = req_body['location']
+    user_type = req_body['location']
+
+    # CALLS CREATE USER FUNCTION ON USER.OBJECTS
+    user = User.objects.create_user(
+                                    username=username,
+                                    password=password,
+                                    email=email,
+                                    first_name=first_name,
+                                    last_name=last_name,
+                                    shop_name=shop_name,
+                                    location=location,
+                                    user_type=user_type,
+                                    )
+
+    # Saves user data that was just posted
+    user.save()
+
+    # Check which user type is sent in and run create user function associated with the correct type
+    # if they are one of the types, create a user of that type
+    # if req_body['user_type'] == 'Shop':
+    #     create_shop_user(user)
+    # elif req_body['user_type'] == 'Client':
+    #     create_user(user)
+
+    # Authenticate the user and make them currentUser
+    currentUser = authenticate(username=username, password=password)
+
+    if currentUser is not None:
+        login(request, currentUser)
+        return HttpResponseRedirect('/')
+    else:
+        return Http404
+
 
 ##############################################
 ###               Login User               ###
@@ -90,74 +146,6 @@ def login_user(request):
     return HttpResponse(data, content_type='application/json')
 
 
-
-##############################################
-###              CREATE USER               ###
-##############################################
-def create_user_object(request):
-    '''
-        Function to catch registration of user from login.html.
-        Upon form submission, the values of the fields are passed in via the arg 'request'
-        and then set to variables below.
-
-        Following we create a user by setting the variables passed in the the create_user function
-        below and then we save it to our database.
-
-        Args:
-            'request' - the values passed in as string via the $http call from register-ctrl of login.html
-    '''
-
-    # data = imported json and using the .loads() function, passed in the
-    # argument - the decoded body of the request to be posted which is
-    # a dictionary of the info typed into the form. Data is the same as data
-    # in the register-ctrl $http call.
-    data = json.loads(request.body.decode())
-
-    # ASSIGNS CORRESPONDING OBJ VALUE TO A VARIABLE
-    username =  data['username']
-    password = data['password']
-    email = data['email']
-    first_name = data['first_name']
-    last_name = data['last_name']
-
-    # CALLS CREATE USER FUNCTION ON USER.OBJECTS
-    user = User.objects.create_user(
-                                    username=username,
-                                    password=password,
-                                    email=email,
-                                    first_name=first_name,
-                                    last_name=last_name,
-                                    )
-
-    # SAVES USER DATA THAT WAS JUST POSTED
-    user.save()
-
-    currentUser = authenticate(username=username, password=password)
-
-    if currentUser is not None:
-        login(request, currentUser)
-        return HttpResponseRedirect('/')
-    else:
-        return Http404
-
-
-# def login_user(request):
-#     data = json.loads(request.body.decode())
-
-#     username = data['username']
-#     password = data['password']
-
-#     user = authenticate(username=username, password=password)
-#     # login(user)
-
-#     if user is not None:
-#         login(request, user)
-#         # print('login user', request.user)
-#         return HttpResponseRedirect('/')
-#     else:
-#         return Http404
-
-
 ##############################################
 ###              LOGOUT USER               ###
 ##############################################
@@ -165,4 +153,3 @@ def logout_view(request):
     logout(request)
     print('user', request.user)
     return HttpResponseRedirect('/')
-
