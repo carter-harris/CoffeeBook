@@ -1,0 +1,19 @@
+{
+  "name": "coffee_book",
+  "version": "1.0.0",
+  "description": "Fullstack Capstone project built with Python/Django and AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carter-harris/CoffeeBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carter-harris/CoffeeBook/issues"
+  },
+  "homepage": "https://github.com/carter-harris/CoffeeBook#readme"
+}
