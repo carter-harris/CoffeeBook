@@ -26,17 +26,7 @@ angular.module('coffee_book')
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           },
-          data: auth.user
-          // data: {
-          //   "username": auth.user.username,
-          //   "password": auth.user.password,
-          //   "email": auth.user.email,
-          //   "first_name": auth.user.first_name,
-          //   "last_name": auth.user.last_name,
-          //   "shop_name": auth.user.shop_name,
-          //   "user_type": auth.user.user_type,
-          //   "location": auth.user.location
-          // }
+          data: auth.user // auth.user has all the properties of the form
         }).success(res => {
           if (res.success) {
             console.log("Registered");

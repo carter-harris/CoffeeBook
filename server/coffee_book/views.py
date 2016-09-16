@@ -1,11 +1,14 @@
 #####################################################################################
 #   IMPORT SECTION  #
 
+# django imports
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.views.decorators.csrf import csrf_exempt
 
+# import for handeling request formatting
 import json
 
 # from rest_framework import permissions
@@ -14,10 +17,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
+# imports from other files
 from .models import User, Coffee, BrewMethod, Review, Region
 from .serializers import UserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer, RegionSerializer
 # from .permissions import IsShopOwner
-
 
 
 #####################################################################################
@@ -58,12 +61,14 @@ class ReviewView(viewsets.ModelViewSet):
 @csrf_exempt
 def create_user_object(request):
     '''
-        Function to catch registration of user from login.html.
-        Upon form submission, the values of the fields are passed in via the arg 'request'
+        Function to catch registration of user from signup.html
+        Upon data submission, the values of the fields are passed in via the arg 'request'
         and then set to variables below.
 
         Following we create a user by setting the variables passed in the the create_user function
         below and then we save it to our database.
+
+        Then the request values are passed to the login function to automatically login the user once they have signed up
 
         Args:
             'request' - the values passed in as string via the $http call from associated ctrl of html views on Angular
@@ -81,8 +86,8 @@ def create_user_object(request):
     email = req_body['email']
     first_name = req_body['first_name']
     last_name = req_body['last_name']
-    # shop_name = req_body['shop_name']
-    # location = req_body['location']
+    shop_name = req_body['shop_name']
+    location = req_body['location']
     user_type = req_body['user_type']
 
     # CALLS CREATE USER FUNCTION ON USER.OBJECTS
@@ -92,24 +97,32 @@ def create_user_object(request):
                                     email=email,
                                     first_name=first_name,
                                     last_name=last_name,
-                                    # shop_name=shop_name,
-                                    # location=location,
+                                    shop_name=shop_name,
+                                    location=location,
                                     user_type=user_type,
                                     )
 
     # Saves user data that was just posted
     user.save()
 
+    if currentUser is not None:
+        login(request, currentUser)
+        return HttpResponseRedirect('/landing')
+    else:
+        return Http404
+
     return login_user(request)
+
 
 ##############################################
 ###               Login User               ###
 ##############################################
 @csrf_exempt
 def login_user(request):
-    '''Handles the creation of a new user for authentication
-    Method arguments:
-      request -- The full HTTP request object
+    '''
+        Handles the creation of a new user for authentication
+        Args:
+          request -- The full HTTP request object
     '''
 
     # Load the JSON string of the request body into a dict
@@ -125,6 +138,7 @@ def login_user(request):
     success = True
     if authenticated_user is not None:
         login(request=request, user=authenticated_user)
+        # return HttpResponseRedirect('/landing')
     else:
         success = False
 
