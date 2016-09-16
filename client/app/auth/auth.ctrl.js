@@ -12,10 +12,10 @@ angular.module('coffee_book')
       const auth = this;
 
       // Default values variables
-      auth.user = {
-        username: '',
-        password: ''
-      };
+      // auth.user = {
+      //   username: '',
+      //   password: ''
+      // };
       auth.root = null;
 
 
@@ -26,19 +26,19 @@ angular.module('coffee_book')
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           },
-          data: auth.user // auth.user has all the properties of the form
+          data: auth // auth.user has all the properties of the form
         }).success(res => {
           if (res.success) {
             console.log("Registered");
             $location.path('/landing');
           }
-        }).error(console.error);
+        }).catch(console.error);
       };
 
       /*
         Post the user-provided credentials to API
        */
-      auth.auth = function() {
+      auth.login = function() {
         $http({
           url: `${API_URL}/login/`,
           method: "POST",
@@ -46,25 +46,28 @@ angular.module('coffee_book')
             "Content-Type": "application/x-www-form-urlencoded"
           },
           data: {
-            "username": auth.user.username,
-            "password": auth.user.password
+            "username": auth.username,
+            "password": auth.password
           }
-        }).success(res => {
-          if (res.success) {
-            console.log('Success')
+        }).then(res => {
+          if (res.authenticated_user === 'None') {
+            console.log("Login FAILED");
+          }
+          else {
+            console.log('Success, you logged in! RES: ', res.authenticated_user)
             /*
             Login was successful, store credentials for use in requests
             to API that require permissions
              */
             RootFactory.credentials({
-              username: auth.user.username,
-              password: auth.user.password
+              username: auth.username,
+              password: auth.password
             });
 
             // Redirect on successful login
             $location.path('/landing');
           }
-        }).error(console.error);
+        }).catch(console.error);
       };
 
     }

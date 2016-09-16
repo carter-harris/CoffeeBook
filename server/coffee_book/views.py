@@ -5,7 +5,7 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, Http404
 from django.views.decorators.csrf import csrf_exempt
 
 # import for handeling request formatting
@@ -86,9 +86,9 @@ def create_user_object(request):
     email = req_body['email']
     first_name = req_body['first_name']
     last_name = req_body['last_name']
-    shop_name = req_body['shop_name']
-    location = req_body['location']
-    user_type = req_body['user_type']
+    # shop_name = req_body['shop_name']
+    # location = req_body['location']
+    # user_type = req_body['user_type']
 
     # CALLS CREATE USER FUNCTION ON USER.OBJECTS
     user = User.objects.create_user(
@@ -97,21 +97,26 @@ def create_user_object(request):
                                     email=email,
                                     first_name=first_name,
                                     last_name=last_name,
-                                    shop_name=shop_name,
-                                    location=location,
-                                    user_type=user_type,
+                                    # shop_name=shop_name,
+                                    # location=location,
+                                    # user_type=user_type,
                                     )
+    user.shop_name = req_body['shop_name']
+    user.location = req_body['location']
+    user.user_type = req_body['user_type']
 
     # Saves user data that was just posted
     user.save()
 
+    currentUser = authenticate(username=username, password=password)
+    print('-->>>>>>>CURRENTUSER>>>>>>>>>', currentUser)
+
     if currentUser is not None:
         login(request, currentUser)
-        return HttpResponseRedirect('/landing')
+        return login_user(request)
     else:
         return Http404
 
-    return login_user(request)
 
 
 ##############################################
@@ -133,6 +138,7 @@ def login_user(request):
             username=req_body['username'],
             password=req_body['password']
             )
+    print('-->>>>>>>>LOGIN CURRENT USER>>>>>>>>', authenticated_user)
 
     # If authentication was successful, log the user in
     success = True
@@ -142,7 +148,8 @@ def login_user(request):
     else:
         success = False
 
-    data = json.dumps({"success":success})
+    data = json.dumps({"authenticated_user":authenticated_user})
+    # data = json.dumps({"success":success})
     return HttpResponse(data, content_type='application/json')
 
 

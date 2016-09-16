@@ -15,8 +15,8 @@ USER_TYPES = [('Shop', 'Shop'), ('Client', 'Client')]
 
 class User(AbstractUser):
     user_type = models.CharField(choices=USER_TYPES, max_length=6)
-    shop_name = models.CharField(max_length=25, blank=True)
-    location = models.CharField(max_length=200, blank=True)
+    shop_name = models.CharField(max_length=25, default='')
+    location = models.CharField(max_length=200, default='')
 
     #  do you want to be a shop or client, if they want to be a certain user you need to post that selection in the http request
 
@@ -24,7 +24,7 @@ class User(AbstractUser):
     # is needed, such as the web browseable API interface provide by
     # the framework.
     def __str__(self):
-        return "{}: {} {} {} {} ".format(self.username, self.first_name, self.last_name, self.shop_name, self.location )
+        return "{} {}".format(self.shop_name, self.first_name)
 
 
 

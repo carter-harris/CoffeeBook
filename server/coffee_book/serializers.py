@@ -5,7 +5,7 @@ from coffee_book.models import User, Coffee, BrewMethod, Review, Region
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'user_type', 'first_name', 'last_name', 'shop_name', 'location')
+        fields = ('id', 'url', 'username', 'user_type', 'first_name', 'last_name', 'shop_name', 'location')
 
 class BrewMethodSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -3,11 +3,6 @@ angular.module('coffee_book', ['ngRoute'])
 // API URL
 .constant('API_URL', 'http://localhost:8000')
 
-// ?
-.config($httpProvider => {
-  $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-  $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-})
 
 // GETS THE API ROOT INFORMATION
 .factory('RootFactory', [
