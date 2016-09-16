@@ -24,7 +24,7 @@ class User(AbstractUser):
     # is needed, such as the web browseable API interface provide by
     # the framework.
     def __str__(self):
-        return "{}: {} ".format(self.username, self.first_name, self.last_name, self.shop_name, self.location )
+        return "{}: {} {} {} {} ".format(self.username, self.first_name, self.last_name, self.shop_name, self.location )
 
 
 

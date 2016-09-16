@@ -1,4 +1,4 @@
-angular.module('coffee_book', ['ngRoute', 'angular-bootstrap'])
+angular.module('coffee_book', ['ngRoute'])
 
 // API URL
 .constant('API_URL', 'http://localhost:8000')
@@ -10,7 +10,7 @@ angular.module('coffee_book', ['ngRoute', 'angular-bootstrap'])
 })
 
 // GETS THE API ROOT INFORMATION
-angular.module('coffee_book').factory('RootFactory', [
+.factory('RootFactory', [
     "$http",
     "$timeout",
     "API_URL",

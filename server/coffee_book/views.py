@@ -55,6 +55,7 @@ class ReviewView(viewsets.ModelViewSet):
 ##############################################
 ###              CREATE USER               ###
 ##############################################
+@csrf_exempt
 def create_user_object(request):
     '''
         Function to catch registration of user from login.html.
@@ -80,9 +81,9 @@ def create_user_object(request):
     email = req_body['email']
     first_name = req_body['first_name']
     last_name = req_body['last_name']
-    shop_name = req_body['shop_name']
-    location = req_body['location']
-    user_type = req_body['location']
+    # shop_name = req_body['shop_name']
+    # location = req_body['location']
+    user_type = req_body['user_type']
 
     # CALLS CREATE USER FUNCTION ON USER.OBJECTS
     user = User.objects.create_user(
@@ -91,30 +92,15 @@ def create_user_object(request):
                                     email=email,
                                     first_name=first_name,
                                     last_name=last_name,
-                                    shop_name=shop_name,
-                                    location=location,
+                                    # shop_name=shop_name,
+                                    # location=location,
                                     user_type=user_type,
                                     )
 
     # Saves user data that was just posted
     user.save()
 
-    # Check which user type is sent in and run create user function associated with the correct type
-    # if they are one of the types, create a user of that type
-    # if req_body['user_type'] == 'Shop':
-    #     create_shop_user(user)
-    # elif req_body['user_type'] == 'Client':
-    #     create_user(user)
-
-    # Authenticate the user and make them currentUser
-    currentUser = authenticate(username=username, password=password)
-
-    if currentUser is not None:
-        login(request, currentUser)
-        return HttpResponseRedirect('/')
-    else:
-        return Http404
-
+    return login_user(request)
 
 ##############################################
 ###               Login User               ###
