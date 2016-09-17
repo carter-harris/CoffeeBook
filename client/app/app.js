@@ -14,6 +14,7 @@ angular.module('coffee_book', ['ngRoute'])
       let apiRoot = null;
       let httpGet = $http.get(API_URL);
       let userCredentials = {};
+      let username = '';
 
       return {
         getApiRoot () {

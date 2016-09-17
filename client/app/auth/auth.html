@@ -2,12 +2,12 @@
 
 </div>
   <div>Username</div>
-  <input type="text" ng-model="auth.username">
+  <input type="text" ng-model="auth.user.username">
 <div>
 
 <div>
   <div>Password</div>
-  <input type="password" ng-model="auth.password">
+  <input type="password" ng-model="auth.user.password">
 </div>
 
 <button ng-click="auth.login()">Login</button>
@@ -15,39 +15,39 @@
 
 
 <div>Company
-  <input type="radio" name="type" ng-model="auth.user_type" value="Shop">
+  <input type="radio" name="type" ng-model="auth.user.user_type" value="Shop">
 </div>
 <div>User
-  <input type="radio" name="type" ng-model="auth.user_type" value="Client">
+  <input type="radio" name="type" ng-model="auth.user.user_type" value="Client">
 </div>
 <section>
   <div>Username</div>
-  <input type="text" ng-model="auth.username">
+  <input type="text" ng-model="auth.user.username">
 </section>
 <section>
   <div>Password</div>
-  <input type="password" ng-model="auth.password">
+  <input type="password" ng-model="auth.user.password">
 </section>
 <section>
   <div>Email</div>
-  <input type="email" ng-model="auth.email">
+  <input type="email" ng-model="auth.user.email">
 </section>
 <section>
   <div>First name</div>
-  <input type="text" ng-model="auth.first_name">
+  <input type="text" ng-model="auth.user.first_name">
 </section>
 <section>
   <div>Last name</div>
-  <input type="text" ng-model="auth.last_name">
+  <input type="text" ng-model="auth.user.last_name">
 </section>
 <section>
   <div>Company</div>
-  <input type="text" ng-model="auth.shop_name" value="''">
+  <input type="text" ng-model="auth.user.shop_name" value="''">
 </section>
 
 <section>
   <div>Location</div>
-  <input type="text" ng-model="auth.location" value="''">
+  <input type="text" ng-model="auth.user.location" value="''">
 </section>
 <button ng-click="auth.register()">Register</button>
 </article>

@@ -12,10 +12,16 @@ angular.module('coffee_book')
       const auth = this;
 
       // Default values variables
-      // auth.user = {
-      //   username: '',
-      //   password: ''
-      // };
+      auth.user = {
+        username: '',
+        password: '',
+        email: '',
+        first_name: '',
+        last_name: '',
+        user_type: '',
+        shop_name: '',
+        location: ''
+      };
       auth.root = null;
 
 
@@ -26,13 +32,14 @@ angular.module('coffee_book')
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           },
-          data: auth // auth.user has all the properties of the form
-        }).success(res => {
-          if (res.success) {
-            console.log("Registered");
-            $location.path('/landing');
-          }
-        }).catch(console.error);
+          data: auth.user // auth.user has all the properties of the form
+        }).then(res => {
+            console.log("res!!!!!", res );
+            auth.login()
+          // if (res.success) {
+          //   console.log("Registered");
+          //   $location.path('/landing');
+        }, (e) => {console.log(e)})
       };
 
       /*
@@ -46,24 +53,24 @@ angular.module('coffee_book')
             "Content-Type": "application/x-www-form-urlencoded"
           },
           data: {
-            "username": auth.username,
-            "password": auth.password
+            "username": auth.user.username,
+            "password": auth.user.password
           }
         }).then(res => {
           if (res.authenticated_user === 'None') {
             console.log("Login FAILED");
           }
           else {
-            console.log('Success, you logged in! RES: ', res.authenticated_user)
+            console.log('Success, you logged in! RES: ', res.data)
             /*
             Login was successful, store credentials for use in requests
             to API that require permissions
              */
             RootFactory.credentials({
-              username: auth.username,
-              password: auth.password
+              username: auth.user.username,
+              password: auth.user.password
             });
-
+            RootFactory.username = auth.user.username
             // Redirect on successful login
             $location.path('/landing');
           }
