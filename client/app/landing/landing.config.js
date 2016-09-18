@@ -1,7 +1,7 @@
 angular.module('coffee_book')
   .config($routeProvider => {
     $routeProvider
-      .when('/landing', {
+      .when('/', {
         controller: 'LandingCtrl',
         controllerAs: 'landing',
         templateUrl: 'app/landing/landing.html'

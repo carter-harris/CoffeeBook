@@ -12,8 +12,5 @@ angular.module('coffee_book')
 
       const landing = this;
 
-
-
-
     }
 ]);
