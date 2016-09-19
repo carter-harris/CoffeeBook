@@ -5,5 +5,10 @@ angular.module('coffee_book')
         controller: 'CoffeeCtrl',
         controllerAs: 'coffee',
         templateUrl: 'app/coffee/coffee.html'
+      })
+      .when('/coffee', {
+        controller: 'CoffeeCtrl',
+        controllerAs: 'coffee',
+        templateUrl: 'app/coffee/coffee.html'
       });
   })
