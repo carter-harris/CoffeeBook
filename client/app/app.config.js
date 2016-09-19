@@ -1,17 +1,33 @@
 angular.module('coffee_book')
   .config($routeProvider => {
 
-    // Find currentUser and set it
+    // If credentials are set then allow the user to go to restricted pages
+    // if not, direct them to the login
+    let requiresAuth = ($location, AuthFactory) => new Promise((resolve, reject) => {
+      if (AuthFactory.credentials()) {
+        console.log("User is authenticated, resolve route promise");
+        resolve();
+      } else {
+        console.log("User is not authenticated, reject route promise");
+        reject();
+        $location.path("/login");
+      }
+    });
+
+
+    // Find currentUser and et it
     let currentUserObject = (AuthFactory, RootFactory, $http) => new Promise((resolve, reject) => {
       RootFactory.getApiRoot().then(res => {
+        console.log("res of config: ", res );
         $http.get(res.users)
         .then(users => {
-          allUsers = users.data
+          all_users = users.data
           currentUsername = AuthFactory.getUsername();
-          for (var i = 0; i < allUsers.length; i++){
-            if (currentUsername === allUsers[i].username) {
-              resolve(allUsers[i]);
-              AuthFactory.setUserObject(allUsers[i]);
+          console.log("currentUsername config file: ", currentUsername );
+          for (var i = 0; i < all_users.length; i++){
+            if (currentUsername === all_users[i].username) {
+              resolve(all_users[i]);
+              AuthFactory.setCurrentUser(all_users[i]);
             }
           }
           reject(null);
@@ -33,7 +49,8 @@ angular.module('coffee_book')
       .when('/about', {
         controller: 'AboutCtrl',
         controllerAs: 'about',
-        templateUrl: 'app/about/about.html'
+        templateUrl: 'app/about/about.html',
+        resolve: { requiresAuth, currentUserObject }
       })
       // AUTH
       .when('/login', {
@@ -64,6 +81,14 @@ angular.module('coffee_book')
         controller: 'PassportCtrl',
         controllerAs: 'passport',
         templateUrl: 'app/passport/passport.html'
+        resolve: { requiresAuth, currentUserObject }
+      })
+      // COMPANY PORTAL
+      .when('/portal', {
+        controller: 'PassportCtrl',
+        controllerAs: 'portal',
+        templateUrl: 'app/portal/portal.html'
+        resolve: { requiresAuth, currentUserObject }
       })
       // LEARN
       .when('/learn', {

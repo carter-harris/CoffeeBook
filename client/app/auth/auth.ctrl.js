@@ -72,7 +72,7 @@ angular.module('coffee_book')
               password: auth.user.password
             });
             // Redirect on successful login
-            $location.path('/');
+            $location.path('/about');
           }
         }).catch(console.error);
       };

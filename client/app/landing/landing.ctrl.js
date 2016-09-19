@@ -13,8 +13,8 @@ angular.module('coffee_book')
 
       const landing = this;
 
-      // landing.username = AuthFactory.getCurrentUser();
-      // console.log("landing.username: ", landing.username);
+      let username = AuthFactory.getCurrentUser();
+      console.log("landing ctrl username: ", username);
 
       landing.logout = () => {
          AuthFactory.logout();
