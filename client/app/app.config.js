@@ -18,7 +18,7 @@ angular.module('coffee_book')
     // Find currentUser and et it
     let currentUserObject = (AuthFactory, RootFactory, $http) => new Promise((resolve, reject) => {
       RootFactory.getApiRoot().then(res => {
-        console.log("res of config: ", res );
+        console.log("res of config currentUserObject: ", res );
         $http.get(res.users)
         .then(users => {
           all_users = users.data
@@ -49,8 +49,7 @@ angular.module('coffee_book')
       .when('/about', {
         controller: 'AboutCtrl',
         controllerAs: 'about',
-        templateUrl: 'app/about/about.html',
-        resolve: { requiresAuth, currentUserObject }
+        templateUrl: 'app/about/about.html'
       })
       // AUTH
       .when('/login', {
@@ -80,14 +79,14 @@ angular.module('coffee_book')
       .when('/passport', {
         controller: 'PassportCtrl',
         controllerAs: 'passport',
-        templateUrl: 'app/passport/passport.html'
+        templateUrl: 'app/passport/passport.html',
         resolve: { requiresAuth, currentUserObject }
       })
       // COMPANY PORTAL
       .when('/portal', {
-        controller: 'PassportCtrl',
+        controller: 'PortalCtrl',
         controllerAs: 'portal',
-        templateUrl: 'app/portal/portal.html'
+        templateUrl: 'app/portal/portal.html',
         resolve: { requiresAuth, currentUserObject }
       })
       // LEARN

@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^login/$', views.login_user, name='login_user'),
     url(r'^register/$', views.create_user_object, name='create_user_object'),
+    url(r'^new_coffee/$', views.create_new_coffee, name='create_user_object'),
 ]
