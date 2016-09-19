@@ -11,12 +11,12 @@ angular.module('coffee_book')
         controllerAs: 'learn',
         templateUrl: 'app/learn/chemex.html'
       })
-      .when('/learn-kalita_wave', {
+      .when('/learn-kalita-wave', {
         controller: 'LearnCtrl',
         controllerAs: 'learn',
-        templateUrl: 'app/learn/kalita_wave.html'
+        templateUrl: 'app/learn/kalita-wave.html'
       })
-      .when('/learn-chemex', {
+      .when('/learn-aeropress', {
         controller: 'LearnCtrl',
         controllerAs: 'learn',
         templateUrl: 'app/learn/aeropress.html'
