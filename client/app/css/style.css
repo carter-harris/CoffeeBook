@@ -16,8 +16,6 @@ hr {
 }
 
 .learn-img {
-  /*position: relative;*/
-  width: 280px;
-  height: 280px;
-  overflow: hidden;
+  width: 380px;
+  height: 330px;
 }

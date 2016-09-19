@@ -1,0 +1,57 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{coffeeDetail.title}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div>
+        <img src="" alt="">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h4>About</h4>
+      <p>This coffee...{{coffeeDetail.description/about?}}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="">Tasting Notes</p>
+      <ul ng-repeat="coffee-notes in coffeDetail.notes">
+        <li>{{coffee-notes.notes}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div>
+        <ul>
+          <li><strong>Detail:</strong>{{coffeeDetail.detail}}</li>
+          <li><strong>Region:</strong>{{coffeeDetail.region}}</li>
+          <li><strong>Farm:</strong>{{coffeeDetail.farm}}</li>
+          <li><strong>Varietal:</strong>{{coffeeDetail.varietal}}</li>
+          <li><strong>Altitude:</strong>{{coffeeDetail.altitude}}</li>
+          <li><strong>Producer:</strong>{{coffeeDetail.producer}}</li>
+          <li><strong>Process:</strong>{{coffeeDetail.Process}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h4>Brewing Recommendation</h4>
+      <p>You should.....{{coffeeDetail.brewingRecommendation}}</p>
+      <h4>Ratio</h4>
+      <p>Ratio is...{{maybeRatio.coffeeRatio}}</p>
+      <p class=sign-up-btn><a ng-click="coffeeDetail.brew()" href="/#/brew" "Brew">Brew</a></p>
+    </div>
+  </div>
+
+</div>
