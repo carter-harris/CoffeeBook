@@ -13,6 +13,8 @@ angular.module('coffee_book')
       const coffee = this;
 
       coffee.title = 'Coffee Page'
+      // coffee.currentUser = RootFactory.getCurrentUser().username;
+      // coffee.currentUserType = RootFactory.getCurrentUser().user_type;
 
 
 

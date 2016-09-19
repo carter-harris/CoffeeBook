@@ -10,7 +10,7 @@
   </head>
   <body>
     <div ng-app='coffee_book'>
-        <div ng-include="'app/nav/nav.html'"></div>
+        <!-- <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div> -->
         <div ng-view></div>
     </div>
 
@@ -18,44 +18,46 @@
     <!-- APP DEPENDENCIES -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
 
     <!-- ABOUT SCRIPTS -->
     <script src="app/about/about.factory.js"></script>
     <script src="app/about/about.ctrl.js"></script>
-    <script src="app/about/about.config.js"></script>
 
     <!-- AUTH SCRIPTS -->
     <script src="app/auth/auth.factory.js"></script>
     <script src="app/auth/auth.ctrl.js"></script>
-    <script src="app/auth/auth.config.js"></script>
 
     <!-- BREW SCRIPTS -->
     <script src="app/brew/brew.factory.js"></script>
     <script src="app/brew/brew.ctrl.js"></script>
-    <script src="app/brew/brew.config.js"></script>
 
     <!-- COFFEE SCRIPTS -->
     <script src="app/coffee/coffee.factory.js"></script>
     <script src="app/coffee/coffee.ctrl.js"></script>
-    <script src="app/coffee/coffee.config.js"></script>
 
     <!-- LANDING SCRIPTS -->
     <script src="app/landing/landing.factory.js"></script>
     <script src="app/landing/landing.ctrl.js"></script>
-    <script src="app/landing/landing.config.js"></script>
 
     <!-- LEARN SCRIPTS -->
     <script src="app/learn/learn.factory.js"></script>
     <script src="app/learn/learn.ctrl.js"></script>
-    <script src="app/learn/learn.config.js"></script>
 
     <!-- PASSPORT SCRIPTS -->
     <script src="app/passport/passport.factory.js"></script>
     <script src="app/passport/passport.ctrl.js"></script>
-    <script src="app/passport/passport.config.js"></script>
+
+    <!-- NAV SCRIPTS -->
+    <script src="app/nav/nav.ctrl.js"></script>
+
+    <!-- API SCRIPTS -->
+    <script src="app/api_root/api_root.factory.js"></script>
+
+
 
   </body>
 </html>

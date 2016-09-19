@@ -1,47 +1,19 @@
-angular.module('coffee_book', ['ngRoute'])
+angular.module('coffee_book', ['ngRoute', 'ngCookies'])
+  // API URL CONST
+  .constant('API_URL', 'http://localhost:8000')
+  .run(AuthFactory => {
+    AuthFactory.read();
+  })
 
-// API URL
-.constant('API_URL', 'http://localhost:8000')
-
-
-// GETS THE API ROOT INFORMATION
-.factory('RootFactory', [
-    "$http",
-    "$timeout",
-    "API_URL",
-
-    ($http, $timeout, API_URL) => {
-      let apiRoot = null;
-      let httpGet = $http.get(API_URL);
-      let userCredentials = {};
-      let username = '';
-
-      return {
-        getApiRoot () {
-          return httpGet.then(res => res.data)
-        },
-        credentials (creds) {
-          if (creds) {
-            userCredentials = creds;
-          } else {
-            if (userCredentials.hasOwnProperty("password")) {
-              return window.btoa(`${userCredentials.username}:${userCredentials.password}`);
-            } else {
-              return false;
-            }
-          }
-        }
-      }
+  let requiresAuth = ($location, AuthFactory) => new Promise((resolve, reject) => {
+    if (AuthFactory.credentials()) {
+      console.log("User is authenticated, resolve route promise");
+      resolve();
+    } else {
+      console.log("User is not authenticated, reject route promise");
+      reject();
+      $location.path("/");
     }
-  ])
+  });
 
-
-
-//// ----  FILTERS  ---- /////
-
-// CAPITALIZE FIRST LETTER OF A STRING
-.filter('capitalize', () => {
-  return (thingToChange) => {
-    return thingToChange.charAt(0).toUpperCase() + thingToChange.slice(1)
-  }
-});
+// resolve: { requiresAuth }

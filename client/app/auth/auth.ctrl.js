@@ -3,15 +3,14 @@ angular.module('coffee_book')
     '$http',
     '$location',
     'RootFactory',
+    'AuthFactory',
     'API_URL',
+    '$cookies',
 
-    function($http, $location, RootFactory, API_URL) {
-
-      console.log("runnin? auth" );
-
+    function($http, $location, RootFactory, AuthFactory, API_URL, $cookies) {
       const auth = this;
 
-      // Default values variables
+      // Default values variables for user object
       auth.user = {
         username: '',
         password: '',
@@ -22,9 +21,12 @@ angular.module('coffee_book')
         shop_name: '',
         location: ''
       };
+
       auth.root = null;
+      auth.currentUserDude = null;
 
 
+      // Post the user-provided inputs to API then run login()
       auth.register = function() {
         $http({
           url: `${API_URL}/register/`,
@@ -32,16 +34,17 @@ angular.module('coffee_book')
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           },
-          data: auth.user // auth.user has all the properties of the form
+          // auth.user has all the properties from the form
+          data: auth.user
         }).then(res => {
             console.log("res from posting the user register!!!!!", res );
+            // Now run login with the username and password
             auth.login()
         }, (e) => {console.log('the e!', e )}).catch(console.error);
       };
 
-      /*
-        Post the user-provided credentials to API
-       */
+
+      // Post the user-provided credentials to API
       auth.login = function() {
         $http({
           url: `${API_URL}/login/`,
@@ -54,23 +57,22 @@ angular.module('coffee_book')
             "password": auth.user.password
           }
         }).then(res => {
-          console.log("res after login!", res );
           if (res.authenticated_user === 'None') {
-            console.log("Login FAILED");
+            console.log("Login Failed.");
           }
           else {
-            console.log('Success, you logged in! RES: ', res.data)
-            /*
-            Login was successful, store credentials for use in requests
-            to API that require permissions
-             */
-            RootFactory.credentials({
+            console.log('Success, you logged in! RES: ', res.data[0].fields)
+
+            // auth.currentUser = res.data[0].fields
+
+            // Login was successful, store credentials for use in requests
+            // to API that require permissions
+            AuthFactory.credentials({
               username: auth.user.username,
               password: auth.user.password
             });
-            RootFactory.username = auth.user.username
             // Redirect on successful login
-            $location.path('/landing');
+            $location.path('/');
           }
         }).catch(console.error);
       };

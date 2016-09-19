@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, Http404
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 # import for handeling request formatting
 import json
 
 import requests
-
 # from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -151,8 +151,8 @@ def login_user(request):
     else:
         success = False
 
-    # data = json.dumps({"authenticated_user":authenticated_user})
-    data = json.dumps({"success":success})
+    the_user = User.objects.filter(username=req_body['username'])
+    data = serializers.serialize('json', the_user)
     return HttpResponse(data, content_type='application/json')
 
 
