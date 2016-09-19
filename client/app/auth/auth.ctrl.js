@@ -34,12 +34,9 @@ angular.module('coffee_book')
           },
           data: auth.user // auth.user has all the properties of the form
         }).then(res => {
-            console.log("res!!!!!", res );
+            console.log("res from posting the user register!!!!!", res );
             auth.login()
-          // if (res.success) {
-          //   console.log("Registered");
-          //   $location.path('/landing');
-        }, (e) => {console.log(e)})
+        }, (e) => {console.log('the e!', e )}).catch(console.error);
       };
 
       /*
@@ -57,6 +54,7 @@ angular.module('coffee_book')
             "password": auth.user.password
           }
         }).then(res => {
+          console.log("res after login!", res );
           if (res.authenticated_user === 'None') {
             console.log("Login FAILED");
           }

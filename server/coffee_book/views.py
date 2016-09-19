@@ -103,9 +103,6 @@ def create_user_object(request):
                                     location=location,
                                     user_type=user_type,
                                     )
-    # user.shop_name = req_body['shop_name']
-    # user.location = req_body['location']
-    # user.user_type = req_body['user_type']
 
     # Saves user data that was just posted
     user.save()

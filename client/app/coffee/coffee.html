@@ -1,1 +1,47 @@
 <h1>{{coffee.title}}</h1>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Coffeebook</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Latin America</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="" ng-repeat="lol in coffee.latin-america-coffees" ng-src="{{lol.img}}">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Africa</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="" ng-repeat="lol in coffee.africa-coffees" ng-src="{{lol.img}}">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Oceania</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="" ng-repeat="lol in coffee.oceania-coffees" ng-src="{{lol.img}}">
+    </div>
+  </div>
+
+</div>
