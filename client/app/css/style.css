@@ -14,3 +14,10 @@ hr {
   text-align: center;
   cursor: pointer;
 }
+
+.learn-img {
+  /*position: relative;*/
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+}
