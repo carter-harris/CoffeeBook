@@ -1,0 +1,26 @@
+<!-- NAV BAR -->
+<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+
+<div class="container-fluid">
+
+  <h1>{{landing.username.username}} : Coffees</h1>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Coffeebook</h1>
+    </div>
+  </div>
+
+  <div class="row" ng-repeat="coffees in viewPortal.userCoffees">
+    <div class="col-sm-4">
+      <p>{{coffees.url}}</p>
+    </div>
+     <div class="col-sm-4">
+      <p>Bring</p>
+    </div>
+     <div class="col-sm-4">
+      <p>Bring</p>
+    </div>
+  </div>
+
+</div>

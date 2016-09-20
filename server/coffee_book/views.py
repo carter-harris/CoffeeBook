@@ -37,6 +37,18 @@ class CoffeeView(viewsets.ModelViewSet):
     serializer_class = CoffeeSerializer
     # permission_classes = (IsShopOwner,)
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = Coffee.objects.all()
+        user_id = self.request.query_params.get('user_id', None)
+        # print('>>>>>>>>>USER ID>>>>>', user_id)
+        if user_id is not None:
+            queryset = queryset.filter(owner__id=user_id)
+        return queryset
+
 
 class BrewMethodView(viewsets.ModelViewSet):
     queryset = BrewMethod.objects.all()
@@ -52,6 +64,19 @@ class ReviewView(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     # permission_classes = (IsShopOwner,)
+
+    def get_queryset(self):
+            """
+            Optionally restricts the returned purchases to a given user,
+            by filtering against a `username` query parameter in the URL.
+            """
+            queryset = Review.objects.all()
+            user_id = self.request.query_params.get('user_id', None)
+            if user_id is not None:
+                queryset = queryset.filter(request__user__id=user_id)
+            return queryset
+
+
 
 
 #####################################################################################

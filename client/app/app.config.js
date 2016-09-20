@@ -26,8 +26,8 @@ angular.module('coffee_book')
           console.log("currentUsername config file: ", currentUsername );
           for (var i = 0; i < all_users.length; i++){
             if (currentUsername === all_users[i].username) {
-              resolve(all_users[i]);
               AuthFactory.setCurrentUser(all_users[i]);
+              resolve();
             }
           }
           reject(null);
@@ -70,7 +70,7 @@ angular.module('coffee_book')
         templateUrl: 'app/coffee/coffee.html'
       })
       // COFFEE DETAIL
-      .when('/coffee/detail', {
+      .when('/coffee/:coffeeId', {
         controller: 'CoffeeDetailCtrl',
         controllerAs: 'coffeeDetail',
         templateUrl: 'app/coffee/coffee-detail.html'

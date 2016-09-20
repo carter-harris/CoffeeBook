@@ -5,16 +5,23 @@ angular.module('coffee_book')
     '$timeout',
     'RootFactory',
     'AuthFactory',
+    'PortalFactory',
     'API_URL',
 
-    function($http, $location, $timeout, RootFactory, AuthFactory, API_URL) {
+    function($http, $location, $timeout, RootFactory, AuthFactory, PortalFactory, API_URL) {
       const viewPortal = this;
 
-      // Ctrl variables
-      let currentUser;
+      // CTRL VARIABLES
+      let currentUser = AuthFactory.getCurrentUser();
+      console.log("currentUser portal ctrl: ", currentUser);
+      // viewPortal.currentUser = user.user;
 
-      // Current User Object
-      viewPortal.currentUser = AuthFactory.getCurrentUser();
+      PortalFactory.getUserCoffees ()
+        .then((res) => {
+          console.log("users coffees res:", res);
+          viewPortal.userCoffees = res;
+          $timeout();
+        })
 
 
 
