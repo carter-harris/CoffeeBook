@@ -1,0 +1,64 @@
+<!-- NAV BAR -->
+<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Hello, im add portal{{addPortal.currentUser.username}}</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <section>
+        <div>Name</div>
+        <input type="text" ng-model="addPortal.name">
+      </section>
+      <section>
+        <div>Farm</div>
+        <input type="password" ng-model="addPortal.farm">
+      </section>
+      <section>
+        <div>Varietal</div>
+        <input type="email" ng-model="addPortal.varietal">
+      </section>
+      <section>
+        <div>Altitude</div>
+        <input type="text" ng-model="addPortal.altitude">
+      </section>
+      <section>
+        <div>Process</div>
+        <input type="text" ng-model="addPortal.process">
+      </section>
+    </div>
+
+    <div class="col-sm-4">
+      <section>
+        <div>Region</div>
+        <input type="text" ng-model="addPortal.region">
+      </section>
+      <section>
+        <div>Brew Method</div>
+        <input type="text" ng-model="addPortal.brewMethod">
+      </section>
+      <textarea type="text" ng-model="addPortal.description" rows="5" cols="40">
+
+      </textarea>
+    </div>
+
+    <div class="col-sm-4">
+      <p>I'm going to be an image blank.</p>
+    </div>
+
+  </div> <!-- END OF FORM ROW -->
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="sign-up-btn" ng-click=>Add Coffees</p>
+    </div>
+  </div>
+
+</div> <!-- END OF VIEW -->
