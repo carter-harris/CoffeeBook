@@ -1,3 +1,23 @@
-<h1>I'm a portal</h1>
-<h1>{{portal.currentUser.username}}</h1>
-<h1>{{portal.currentUser.user_type}}</h1>
+<!-- NAV BAR -->
+<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+
+<div class="container-fluid">
+  <h1>Hello, {{portal.currentUser.username}}</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Coffeebook</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <p class=sign-up-btn><a href="/#/login" "View Coffees">View Coffees</a></p>
+    </div>
+    <div class="col-sm-6">
+      <p class=sign-up-btn><a href="/#/login" "Add Coffees">Add Coffees</a></p>
+    </div>
+  </div>
+
+</div>

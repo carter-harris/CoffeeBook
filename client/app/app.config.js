@@ -89,6 +89,18 @@ angular.module('coffee_book')
         templateUrl: 'app/portal/portal.html',
         resolve: { requiresAuth, currentUserObject }
       })
+      .when('/portal/view', {
+        controller: 'PortalViewCoffeesCtrl',
+        controllerAs: 'viewPortal',
+        templateUrl: 'app/portal/portal-view-coffees.html',
+        resolve: { requiresAuth, currentUserObject }
+      })
+      .when('/portal/add', {
+        controller: 'PortalAddCoffeeCtrl',
+        controllerAs: 'addPortal',
+        templateUrl: 'app/portal/portal-add-coffee.html',
+        resolve: { requiresAuth, currentUserObject }
+      })
       // LEARN
       .when('/learn', {
         controller: 'LearnCtrl',

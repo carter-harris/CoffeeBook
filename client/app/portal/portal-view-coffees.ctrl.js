@@ -8,24 +8,13 @@ angular.module('coffee_book')
     'API_URL',
 
     function($http, $location, $timeout, RootFactory, AuthFactory, API_URL) {
-
-      // console.log("Landing Ctrl");
-
       const portal = this;
 
+      // Ctrl variables
       let currentUser;
 
+      // Current User Object
       portal.currentUser = AuthFactory.getCurrentUser();
-      console.log("currentUser portal ctrl: ", currentUser);
-
-      // portal.postCoffee = function() {
-      //   $http({
-      //     url:`${API_URL}/coffee/{owner=portal.currentUser.id}`,
-
-      //     // build userpk equals owner, send current users pk
-      //     after decode and make variables , make a owner = User.objecst ['data']['owner']
-      //   })
-      // }
 
       auth.register = function() {
         $http({
