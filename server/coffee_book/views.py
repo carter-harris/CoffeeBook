@@ -163,3 +163,66 @@ def logout_view(request):
     logout(request)
     print('user', request.user)
     return HttpResponseRedirect('/')
+
+
+
+##############################################
+###           CREATE NEW COFFEE            ###
+##############################################
+@csrf_exempt
+def create_new_coffee(request):
+    '''
+        Handles the creation of a new coffee by a company
+        Args:
+          request -- The full HTTP request object
+    '''
+
+    # Load the JSON string of the request body into a dict
+    req_body = json.loads(request.body.decode())
+
+    print('body yo >>>>>>>>>>>>>>>>>>>>>>>>', req_body)
+
+
+    name = req_body["name"]
+    farm = req_body["farm"]
+    region = req_body["region"]
+    notes = req_body["notes"]
+    varietal = req_body["varietal"]
+    altitude = req_body["altitude"]
+    process = req_body["process"]
+    brewMethod = req_body["brewMethod"]
+    description = req_body["description"]
+    image = req_body["image"]
+    owner = req_body["owner"]
+
+    # FIND MATCHED USERS PK
+    owner = User.objects.get(pk=owner)
+    region = Region.objects.get(name=region)
+    brewMethod = BrewMethod.objects.get(name=brewMethod)
+
+    # CREATE NEW COFFEE
+    newCoffee = Coffee.objects.create(
+                                    name = name,
+                                    farm = farm,
+                                    region = region,
+                                    notes = notes,
+                                    varietal = varietal,
+                                    altitude = altitude,
+                                    process = process,
+                                    brew_method = brewMethod,
+                                    image=image,
+                                    description = description,
+                                    owner = owner,
+                                    )
+
+    # SAVE NEW COFFEE POSTED
+    newCoffee.save()
+
+    # return http response with result of login attempt as json
+    print("newCoffee:>>>>>> ", newCoffee)
+
+    newCoffee_data = serializers.serialize('json', (newCoffee,))
+    return HttpResponse(newCoffee_data, content_type='application/json')
+
+
+

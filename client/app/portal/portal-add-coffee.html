@@ -19,11 +19,11 @@
       </section>
       <section>
         <div>Farm</div>
-        <input type="password" ng-model="addPortal.farm">
+        <input type="text" ng-model="addPortal.farm">
       </section>
       <section>
         <div>Varietal</div>
-        <input type="email" ng-model="addPortal.varietal">
+        <input type="text" ng-model="addPortal.varietal">
       </section>
       <section>
         <div>Altitude</div>
@@ -32,6 +32,10 @@
       <section>
         <div>Process</div>
         <input type="text" ng-model="addPortal.process">
+      </section>
+      <section>
+        <div>Notes</div>
+        <input type="text" ng-model="addPortal.notes">
       </section>
     </div>
 
@@ -50,14 +54,15 @@
     </div>
 
     <div class="col-sm-4">
-      <p>I'm going to be an image blank.</p>
+      <label>Coffee Photo:</label>
+      <input type="file" name="img" ng-model="addPortal.image">
     </div>
 
   </div> <!-- END OF FORM ROW -->
 
   <div class="row">
     <div class="col-sm-12">
-      <p class="sign-up-btn" ng-click=>Add Coffees</p>
+      <p class="sign-up-btn" ng-click=(addPortal.addCoffee())>Add Coffee</p>
     </div>
   </div>
 

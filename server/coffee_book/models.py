@@ -45,17 +45,17 @@ class Region(models.Model):
 
 
 class Coffee(models.Model):
-    name = models.CharField(max_length=25)
-    notes = models.CharField(max_length=35)
-    farm = models.CharField(max_length=25)
-    altitude = models.CharField(max_length=35)
-    process = models.CharField(max_length=25)
+    name = models.CharField(max_length=50)
+    notes = models.CharField(max_length=50)
+    farm = models.CharField(max_length=50)
+    varietal = models.CharField(max_length=25, null=True)
+    altitude = models.CharField(max_length=20)
+    process = models.CharField(max_length=20)
     description = models.TextField()
     region = models.ForeignKey(Region, related_name='coffees')
     brew_method = models.ForeignKey(BrewMethod, null=True, on_delete=models.SET_NULL, related_name='coffees')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, null=True,   on_delete=models.SET_NULL, related_name='coffees')
-    img = models.ImageField(upload_to='coffee_images/', default='coffee_images/default_coffee_image.whatever')
-
+    image = models.CharField(max_length=500, null=True)
     def __str__(self):
         return "{}: {}".format(self.id, self.name)
 

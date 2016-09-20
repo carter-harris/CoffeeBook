@@ -22,7 +22,7 @@ class CoffeeSerializer(serializers.HyperlinkedModelSerializer):
     # owner = serializers.ReadOnlyField(source='owner.username') example
     class Meta:
         model = Coffee
-        fields = ('id', 'url', 'name', 'notes', 'farm', 'altitude', 'process', 'description', 'region', 'brew_method', 'owner', 'img', 'reviews')
+        fields = ('id', 'url', 'name', 'notes', 'farm', 'altitude', 'process', 'description', 'region', 'brew_method', 'notes', 'owner', 'image', 'reviews')
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
