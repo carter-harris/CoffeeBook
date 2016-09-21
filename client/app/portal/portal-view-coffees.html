@@ -11,9 +11,9 @@
     </div>
   </div>
 
-  <div class="row" ng-repeat="coffees in viewPortal.userCoffees">
+  <div class="row" ng-repeat="coffee in viewPortal.userCoffees">
     <div class="col-sm-4">
-      <p>{{coffees.url}}</p>
+      <a href="/#/coffee/{{coffee.id}}"><p><img ng-src="{{coffee.image}}" alt=""></p></a>
     </div>
      <div class="col-sm-4">
       <p>Bring</p>

@@ -57,12 +57,6 @@ angular.module('coffee_book')
         controllerAs: 'auth',
         templateUrl: 'app/auth/auth.html'
       })
-      // BREW
-      .when('/brew', {
-        controller: 'BrewCtrl',
-        controllerAs: 'brew',
-        templateUrl: 'app/brew/brew.html'
-      })
       // COFFEE
       .when('/coffee', {
         controller: 'CoffeeCtrl',
@@ -122,5 +116,11 @@ angular.module('coffee_book')
         controllerAs: 'learn',
         templateUrl: 'app/learn/aeropress.html'
       })
+      // BREW
+      // .when('/brew', {
+      //   controller: 'BrewCtrl',
+      //   controllerAs: 'brew',
+      //   templateUrl: 'app/brew/brew.html'
+      // })
 
   })

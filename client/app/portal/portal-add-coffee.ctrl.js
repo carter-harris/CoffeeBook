@@ -8,6 +8,7 @@ angular.module('coffee_book')
     'API_URL',
 
     function($http, $location, $timeout, RootFactory, AuthFactory, API_URL) {
+      // CONST CtrlAs
       const addPortal = this;
 
       // CTRL VARIABLES
@@ -23,8 +24,6 @@ angular.module('coffee_book')
         const randomInteger = Math.random() * 1e17;
         const getFileExtension = imageFile.type.split('/').slice(-1)[0];
         const randomPath = `${randomInteger}.${getFileExtension}`;
-
-        console.log("varietal", addPortal.varietal);
 
         firebase.storage().ref('/images').child(randomPath).put(imageFile)
           .then(res => {
@@ -47,7 +46,8 @@ angular.module('coffee_book')
                 "image": res.downloadURL
               }
             }).then((res) => {
-                console.log("api new coffee post res: ", res );
+                console.log("ADD COFFEE SUCESS! api new coffee post res: ", res );
+                $location.path("/portal/view")
             })
           }) // end of FIREBASE RES
 

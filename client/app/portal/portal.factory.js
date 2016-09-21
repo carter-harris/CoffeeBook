@@ -19,6 +19,7 @@ angular.module('coffee_book')
            return res.data
           })
         },
+        // GET ALL THE COFFEES "YOU GET A COFFEE, YOU GET A COFFEE , EVERYBODY GETS A COFFEE" - OPRAH
         getAllCoffees () {
           let getCoffees = $http.get(`${API_URL}/coffee/`)
           return getCoffees.then((res) => {

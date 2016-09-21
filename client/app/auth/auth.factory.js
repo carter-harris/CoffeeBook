@@ -44,13 +44,11 @@ angular.module('coffee_book')
       },
       //  SET CURRENT USER , ARG IS PASSED FROM app.config.js from the cookie set
       setCurrentUser (currentUser) {
-        console.log("firing setUSER?");
         currentUserObject = currentUser
         console.log("currentUserObject set: ", currentUserObject);
       },
       // GET THE CURRENT USER FROM THE COOKIE SETTER IN app.config.js
       getCurrentUser () { // this . whatever attribute
-        console.log("you firing?");
         return currentUserObject;
       }
     }

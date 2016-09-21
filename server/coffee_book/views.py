@@ -44,7 +44,6 @@ class CoffeeView(viewsets.ModelViewSet):
         """
         queryset = Coffee.objects.all()
         user_id = self.request.query_params.get('user_id', None)
-        # print('>>>>>>>>>USER ID>>>>>', user_id)
         if user_id is not None:
             queryset = queryset.filter(owner__id=user_id)
         return queryset

@@ -19,7 +19,8 @@ class RegionSerializer(serializers.HyperlinkedModelSerializer):
 
 class CoffeeSerializer(serializers.HyperlinkedModelSerializer):
     # do the owner read only for this one and the review
-    # owner = serializers.ReadOnlyField(source='owner.username') example
+    region = serializers.ReadOnlyField(source='region.name')
+    brew_method = serializers.ReadOnlyField(source='brew_method.name')
     class Meta:
         model = Coffee
         fields = ('id', 'url', 'name', 'notes', 'farm', 'altitude', 'process', 'description', 'region', 'brew_method', 'notes', 'owner', 'image', 'reviews')
