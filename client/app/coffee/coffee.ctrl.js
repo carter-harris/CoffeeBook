@@ -17,18 +17,9 @@ angular.module('coffee_book')
       coffee.oceania = []
 
 
-
-      // CoffeeFactory.getUserCoffees ()
-      //   .then((res) => {
-      //     console.log("users coffees res:", res);
-      //     portal.userCoffees = res;
-      //     $timeout();
-      //   })
-
       CoffeeFactory.getAllCoffees ()
         .then((res) => {
-          console.log("all coffees res COFFEE CTRL:", res);
-          // coffee.allCoffees = res;
+          // console.log("all coffees res COFFEE CTRL:", res);
 
           // New Arrays based off region
           coffee.latinAmerica = res.filter(latin => (latin.region==="Latin America"))

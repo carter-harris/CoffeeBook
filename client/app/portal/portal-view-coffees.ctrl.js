@@ -13,11 +13,11 @@ angular.module('coffee_book')
 
       // CTRL VARIABLES
       let currentUser = AuthFactory.getCurrentUser();
-      console.log("currentUser portal ctrl: ", currentUser);
+      // console.log("currentUser portal ctrl: ", currentUser);
 
       PortalFactory.getUserCoffees ()
         .then((res) => {
-          console.log("users coffees res:", res);
+          // console.log("users coffees res:", res);
           viewPortal.userCoffees = res;
           $timeout();
         })

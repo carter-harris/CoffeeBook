@@ -18,12 +18,12 @@ angular.module('coffee_book')
     // Find currentUser and et it
     let currentUserObject = (AuthFactory, RootFactory, $http) => new Promise((resolve, reject) => {
       RootFactory.getApiRoot().then(res => {
-        console.log("res of config currentUserObject: ", res );
+        // console.log("res of config currentUserObject: ", res );
         $http.get(res.users)
         .then(users => {
           all_users = users.data
           currentUsername = AuthFactory.getUsername();
-          console.log("currentUsername config file: ", currentUsername );
+          // console.log("currentUsername config file: ", currentUsername );
           for (var i = 0; i < all_users.length; i++){
             if (currentUsername === all_users[i].username) {
               AuthFactory.setCurrentUser(all_users[i]);
@@ -122,8 +122,11 @@ angular.module('coffee_book')
         controllerAs: 'learn',
         templateUrl: 'app/learn/aeropress.html'
       })
+      .otherwise({
+        redirectTo:'/'
+      })
       // BREW
-      // .when('/brew', {
+      // .when('/BrewCtrl', {
       //   controller: 'BrewCtrl',
       //   controllerAs: 'brew',
       //   templateUrl: 'app/brew/brew.html'

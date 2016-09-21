@@ -16,11 +16,11 @@ angular.module('coffee_book')
       portal.currentUser = {} // there will be an object in this
 
       portal.currentUser = AuthFactory.getCurrentUser();
-      console.log("portal.currentUser", portal.currentUser );
+      // console.log("portal.currentUser", portal.currentUser );
 
       PortalFactory.getUserCoffees ()
         .then((res) => {
-          console.log("users coffees res:", res);
+          // console.log("users coffees res:", res);
           portal.userCoffees = res;
           $timeout();
         })

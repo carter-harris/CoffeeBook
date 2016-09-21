@@ -27,7 +27,7 @@ angular.module('coffee_book')
 
         firebase.storage().ref('/images').child(randomPath).put(imageFile)
           .then(res => {
-            console.log("firebase res: ", res )
+            // console.log("firebase res: ", res )
             $http({
               url: `${API_URL}/add_new_coffee/`,
               method: "POST",
@@ -46,7 +46,7 @@ angular.module('coffee_book')
                 "image": res.downloadURL
               }
             }).then((res) => {
-                console.log("ADD COFFEE SUCESS! api new coffee post res: ", res );
+                // console.log("ADD COFFEE SUCESS! api new coffee post res: ", res );
                 $location.path("/portal/view")
             })
           }) // end of FIREBASE RES

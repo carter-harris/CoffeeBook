@@ -21,7 +21,7 @@ angular.module('coffee_book')
         .then(
           res => {
             coffeeDetail.coffeeInfo = res.data
-            console.log("coffee detail res ", coffeeDetail.coffeeInfo );
+            // console.log("coffee detail res ", coffeeDetail.coffeeInfo );
           },
           console.error
         )

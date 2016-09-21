@@ -15,7 +15,7 @@ angular.module('coffee_book')
         getUserCoffees () {
           let getCoffees = $http.get(`${API_URL}/coffee/?user_id=${currentUser.id}`)
           return getCoffees.then((res) => {
-           console.log("res of get user Coffees",res );
+           // console.log("res of get user Coffees",res );
            return res.data
           })
         },
@@ -23,7 +23,7 @@ angular.module('coffee_book')
         getAllCoffees () {
           let getCoffees = $http.get(`${API_URL}/coffee/`)
           return getCoffees.then((res) => {
-           console.log("res of get all Coffees PORTAL FACTORY",res );
+           // console.log("res of get all Coffees PORTAL FACTORY",res );
            return res.data
           })
         }

@@ -26,7 +26,7 @@ angular.module('coffee_book')
         .then(
           res => {
             passportReview.coffeeInfo = res.data
-            console.log("coffee detail res ", passportReview.coffeeInfo );
+            // console.log("coffee detail res ", passportReview.coffeeInfo );
           },
           console.error
         )
@@ -37,7 +37,7 @@ angular.module('coffee_book')
       RootFactory.getApiRoot()
         .then(root => {
           return $http.get(`${root.review}`)
-          console.log("REVIEW CALL callback ROOT 1", root )
+          // console.log("REVIEW CALL callback ROOT 1", root )
         })
         .then(res => {
           console.log("REVIEW CALL callback RES 1", res)
@@ -46,7 +46,8 @@ angular.module('coffee_book')
             // console.log("111111111",$routeParams.coffeeId, res.data[i].coffee.id );
             if (passportReview.currentUser.id === res.data[i].owner.id && parseInt($routeParams.coffeeId) === res.data[i].coffee.id) {
             passportReview.review = res.data[i].review
-            console.log("REVIEW DAWG!", passportReview.review );
+            passportReview.id = res.data[i].id
+            // console.log("REVIEW DAWG!", passportReview.review );
             }
           }
         }).catch(console.error)
@@ -54,9 +55,9 @@ angular.module('coffee_book')
 
 
       passportReview.reviewCoffee = function () {
-        console.log("coffe IIIIDDD", $routeParams.coffeeId )
-        console.log("user IIIIIDD", passportReview.currentUser.id );
-        console.log("review text!", passportReview.review );
+        // console.log("coffe IIIIDDD", $routeParams.coffeeId )
+        // console.log("user IIIIIDD", passportReview.currentUser.id );
+        // console.log("review text!", passportReview.review );
         $http({
           url: `${API_URL}/make_coffee_review/`,
           method: "POST",
@@ -68,6 +69,22 @@ angular.module('coffee_book')
             "user": passportReview.currentUser.id,
             "coffee": $routeParams.coffeeId
           }
+        })
+        .then(res => {
+          $location.path('/passport')
+        }).catch(console.error)
+
+      }
+
+
+      passportReview.deleteReview = function () {
+        // console.log("coffe IIIIDDD", $routeParams.coffeeId )
+        // console.log("user IIIIIDD", passportReview.currentUser.id );
+        // console.log("review text!", passportReview.review );
+        $http.defaults.headers.common.Authorization = 'Basic ' + AuthFactory.credentials();
+        $http({
+          url: `${API_URL}/review/${passportReview.id}/`,
+          method: "DELETE"
         })
         .then(res => {
           $location.path('/passport')

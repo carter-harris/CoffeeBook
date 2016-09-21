@@ -22,7 +22,7 @@ angular.module('coffee_book')
 
       PassportFactory.getUserReviews()
         .then(res => {
-          console.log("res of passport ctrl ", res );
+          // console.log("res of passport ctrl ", res );
           passport.allCoffees = res;
 
 

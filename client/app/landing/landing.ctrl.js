@@ -9,7 +9,7 @@ angular.module('coffee_book')
 
     function($http, $location, $timeout, RootFactory, AuthFactory, API_URL) {
 
-      console.log("Landing Ctrl");
+      // console.log("Landing Ctrl");
 
       const landing = this;
 

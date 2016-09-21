@@ -8,7 +8,7 @@ angular.module('coffee_book')
 
     function($http, $location, $timeout, RootFactory, API_URL) {
 
-      console.log("Learn Ctrl");
+      // console.log("Learn Ctrl");
 
       const learn = this;
 

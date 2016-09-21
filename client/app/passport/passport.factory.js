@@ -15,7 +15,7 @@ angular.module('coffee_book')
         getUserReviews () {
           let getCoffees = $http.get(`${API_URL}/review/?user_id=${currentUser.id}`)
           return getCoffees.then((res) => {
-           console.log("res of get user Coffees PassportFactory",res );
+           // console.log("res of get user Coffees PassportFactory",res );
            return res.data
           })
         }
