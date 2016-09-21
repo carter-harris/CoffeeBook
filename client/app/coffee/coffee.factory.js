@@ -20,5 +20,4 @@ angular.module('coffee_book')
         }
       } // end of RETURN
 
-    } // end of FACTORY
-  ])
+  }])// end of FACTORY

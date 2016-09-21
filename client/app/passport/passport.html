@@ -1,4 +1,34 @@
 <!-- NAV BAR -->
 <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
 
-<h1>{{ passport.title }}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Passport</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Name: {{passport.currentUser.username}}</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Coffees</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12" ng-repeat="coffeeStamp in passport.allCoffees">
+      <a href="/#/passport/{{coffeeStamp.coffee.id}}" title=""><img ng-src="{{coffeeStamp.coffee.image}}"></a>
+    </div>
+  </div>
+
+
+</div>

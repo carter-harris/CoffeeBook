@@ -76,6 +76,12 @@ angular.module('coffee_book')
         templateUrl: 'app/passport/passport.html',
         resolve: { requiresAuth, currentUserObject }
       })
+      .when('/passport/:coffeeId', {
+        controller: 'PassportReviewCtrl',
+        controllerAs: 'passportReview',
+        templateUrl: 'app/passport/passportReview.html',
+        resolve: { requiresAuth, currentUserObject }
+      })
       // COMPANY PORTAL
       .when('/portal', {
         controller: 'PortalCtrl',

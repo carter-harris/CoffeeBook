@@ -72,7 +72,7 @@ class ReviewView(viewsets.ModelViewSet):
             queryset = Review.objects.all()
             user_id = self.request.query_params.get('user_id', None)
             if user_id is not None:
-                queryset = queryset.filter(request__user__id=user_id)
+                queryset = queryset.filter(owner__id=user_id)
             return queryset
 
 
@@ -234,7 +234,7 @@ def create_new_coffee(request):
                                     altitude = altitude,
                                     process = process,
                                     brew_method = brewMethod,
-                                    image=image,
+                                    image = image,
                                     description = description,
                                     owner = owner,
                                     )
@@ -247,6 +247,57 @@ def create_new_coffee(request):
 
     newCoffee_data = serializers.serialize('json', (newCoffee,))
     return HttpResponse(newCoffee_data, content_type='application/json')
+
+
+
+##############################################
+###           CREATE NEW REVIEW            ###
+##############################################
+@csrf_exempt
+def create_new_review(request):
+    '''
+        Handles the creation of a new review by a client
+        Args:
+          request -- The full HTTP request object
+    '''
+
+    # Load the JSON string of the request body into a dict
+    req_body = json.loads(request.body.decode())
+
+    review = req_body["review"]
+
+    # FIND MATCHED USERS PK
+    user = User.objects.get(pk=req_body["user"])
+    coffee = Coffee.objects.get(pk=req_body["coffee"])
+
+    newReview = Review.objects.create(
+                                    review = review,
+                                    owner = user,
+                                    coffee = coffee
+                                    )
+
+
+    # SAVE NEW REVIEW POSTED
+    newReview.save()
+
+    # return http response with result of login attempt as json
+    print("newReview:>>>>>> ", newReview)
+
+    newReview_data = serializers.serialize('json', (newReview,))
+    return HttpResponse(newReview_data, content_type='application/json')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^login/$', views.login_user, name='login_user'),
     url(r'^register/$', views.create_user_object, name='create_user_object'),
     url(r'^add_new_coffee/$', views.create_new_coffee, name='create_new_coffee'),
+    url(r'^make_coffee_review/$', views.create_new_review, name='create_new_review'),
 ]

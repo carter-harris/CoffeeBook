@@ -26,6 +26,7 @@ class CoffeeSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'url', 'name', 'notes', 'farm', 'altitude', 'process', 'description', 'region', 'brew_method', 'notes', 'owner', 'image', 'reviews')
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
+    coffee = CoffeeSerializer()
     class Meta:
         model = Review
         fields = ('id', 'url', 'review', 'owner', 'coffee')

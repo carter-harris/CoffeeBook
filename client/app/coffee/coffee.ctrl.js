@@ -12,13 +12,29 @@ angular.module('coffee_book')
       const coffee = this;
 
       coffee.title = 'Coffee Page'
-      // coffee.currentUser = RootFactory.getCurrentUser().username;
-      // coffee.currentUserType = RootFactory.getCurrentUser().user_type;
+      coffee.latinAmerica = []
+      coffee.africa = []
+      coffee.oceania = []
 
-      CoffeeFactory.getUserCoffees ()
+
+
+      // CoffeeFactory.getUserCoffees ()
+      //   .then((res) => {
+      //     console.log("users coffees res:", res);
+      //     portal.userCoffees = res;
+      //     $timeout();
+      //   })
+
+      CoffeeFactory.getAllCoffees ()
         .then((res) => {
-          console.log("users coffees res:", res);
-          portal.userCoffees = res;
+          console.log("all coffees res COFFEE CTRL:", res);
+          // coffee.allCoffees = res;
+
+          // New Arrays based off region
+          coffee.latinAmerica = res.filter(latin => (latin.region==="Latin America"))
+          coffee.africa = res.filter(africa => (africa.region==="Africa"))
+          coffee.oceania = res.filter(oeania => (oeania.region==="Oceania"))
+
           $timeout();
         })
 

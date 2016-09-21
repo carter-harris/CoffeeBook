@@ -1,0 +1,71 @@
+<!-- NAV BAR -->
+<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{passportReivew.title}}</h1>
+      <h1>Passport</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{passportReview.coffeeInfo.name}}</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <img ng-src="{{passportReview.coffeeInfo.image}}">
+    </div>
+    <div class="col-sm-6">
+      <textarea ng-model="passportReview.review" rows="5" cols="40"></textarea>
+      <button ng-click="passportReview.reviewCoffee()">Review</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>About</p>
+      <p>Description: {{passportReview.coffeeInfo.description}}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Notes</p>
+      <p>Notes: {{passportReview.coffeeInfo.notes}}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Region: {{passportReview.coffeeInfo.region}}</p>
+      <p>Farm: {{passportReview.coffeeInfo.farm}}</p>
+      <p>Varietal: {{passportReview.coffeeInfo.varietal}}</p>
+      <p>Altitude: {{passportReview.coffeeInfo.altitude}}</p>
+      <p>Process: {{passportReview.coffeeInfo.process}}</p>
+    </div>
+  </div>
+
+
+</div>
+
+<div>
+  <p>Region: {{passportReview.coffeeInfo.region}}</p>
+  <p>Farm: {{passportReview.coffeeInfo.farm}}</p>
+  <p>Varietal: {{passportReview.coffeeInfo.varietal}}</p>
+  <p>Altitude: {{passportReview.coffeeInfo.altitude}}</p>
+  <p>Process: {{passportReview.coffeeInfo.process}}</p>
+</div>

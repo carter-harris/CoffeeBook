@@ -17,8 +17,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      <img class="" ng-repeat="lol in coffee.latin-america-coffees" ng-src="{{lol.img}}">
+    <div class="col-sm-12" ng-repeat="coffee in coffee.latinAmerica">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 
@@ -30,8 +30,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      <img class="" ng-repeat="lol in coffee.africa-coffees" ng-src="{{lol.img}}">
+    <div class="col-sm-12" ng-repeat="coffee in coffee.africa">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 
@@ -43,8 +43,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      <img class="" ng-repeat="lol in coffee.oceania-coffees" ng-src="{{lol.img}}">
+    <div class="col-sm-12" ng-repeat="coffee in coffee.oceania">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 
