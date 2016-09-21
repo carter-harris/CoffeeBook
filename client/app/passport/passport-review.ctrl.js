@@ -32,6 +32,27 @@ angular.module('coffee_book')
         )
 
 
+
+      //  make a call to reviews and find match of user and coffee id
+      RootFactory.getApiRoot()
+        .then(root => {
+          return $http.get(`${root.review}`)
+          console.log("REVIEW CALL callback ROOT 1", root )
+        })
+        .then(res => {
+          console.log("REVIEW CALL callback RES 1", res)
+          for (var i = 0; i < res.data.length; i++) {
+            // console.log("00000000",passportReview.currentUser.id === res.data[i].owner.id );
+            // console.log("111111111",$routeParams.coffeeId, res.data[i].coffee.id );
+            if (passportReview.currentUser.id === res.data[i].owner.id && parseInt($routeParams.coffeeId) === res.data[i].coffee.id) {
+            passportReview.review = res.data[i].review
+            console.log("REVIEW DAWG!", passportReview.review );
+            }
+          }
+        }).catch(console.error)
+
+
+
       passportReview.reviewCoffee = function () {
         console.log("coffe IIIIDDD", $routeParams.coffeeId )
         console.log("user IIIIIDD", passportReview.currentUser.id );
@@ -50,7 +71,6 @@ angular.module('coffee_book')
         })
         .then(res => {
           $location.path('/passport')
-          console.log("res after review post: ", res );
         }).catch(console.error)
 
       }

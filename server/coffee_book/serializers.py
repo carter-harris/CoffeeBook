@@ -27,6 +27,7 @@ class CoffeeSerializer(serializers.HyperlinkedModelSerializer):
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     coffee = CoffeeSerializer()
+    owner = UserSerializer()
     class Meta:
         model = Review
         fields = ('id', 'url', 'review', 'owner', 'coffee')
