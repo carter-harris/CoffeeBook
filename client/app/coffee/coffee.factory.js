@@ -14,7 +14,7 @@ angular.module('coffee_book')
         getAllCoffees () {
           let getCoffees = $http.get(`${API_URL}/coffee/`)
           return getCoffees.then((res) => {
-           console.log("res of get all Coffees",res );
+           console.log("res of get all Coffees in COFFEE FACTORY",res );
            return res.data
           })
         }
