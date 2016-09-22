@@ -1,22 +1,23 @@
-<nav class="navbar navbar-default nav-body">
-  <div class="container-fluid">
+<!-- <nav class="navbar navbar-default nav-body navbar-transparent"> -->
+<div class="nav-container">
 
-    <div class=" col-sm-4 navbar-header">
-      <h3><a href="/#/">CoffeeBook</a></h3>
-    </div>
+  <div class="title-container-text">
+    <h3><a class="title-nav" href="/#/">CoffeeBook</a></h3>
+  </div>
 
-    <div class="col-sm-8">
-      <ul class="nav navbar-nav">
-        <li><a href="/#/about" "about page">About</a></li>
-        <li><a href="/#/coffee" "coffee page">Coffee</a></li>
-        <li><a href="/#/learn" "learn page">Learn</a></li>
-        <!-- <li><a href="/#/brew" "brew page">Brew</a></li> -->
-        <li><a href="/#/portal" "portal page">Portal</a></li>
-        <li><a href="/#/passport" "passport page">Passport</a></li>
-        <li><a href="/#/login" "login page">Login</a></li>
-      </ul>
-      <button ng-click="nav.logout()">Logout</button>
-    </div>
+  <div class="nav-middle-div"></div>
 
-  </div> <!-- end of nav container -->
-</nav>
+  <div class="link-container">
+    <ul class="nav navbar-nav">
+      <li><a class="nav-links" href="/#/about" "about page">About</a></li>
+      <li><a class="nav-links" href="/#/coffee" "coffee page">Coffee</a></li>
+      <li><a class="nav-links" href="/#/learn" "learn page">Learn</a></li>
+      <li><a class="nav-links" href="/#/portal" "portal page">Portal</a></li>
+      <li><a class="nav-links" href="/#/passport" "passport page">Passport</a></li>
+      <li><a class="nav-links" href="/#/login" "login page">Login</a></li>
+      <li ng-click="nav.logout()"><a class="nav-links" href="/#/login" "login page">Logout</a></li>
+    </ul>
+  </div>
+
+</div> <!-- end of nav container -->
+<!-- </nav> -->

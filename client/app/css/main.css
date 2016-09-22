@@ -1,6 +1,105 @@
 * {
   box-sizing: border-box; }
 
-body {
+html,
+body,
+ul,
+li {
+  font-family: 'Lato', sans-serif;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  letter-spacing: 2px; }
+
+a {
+  text-decoration: none;
+  color: #FFF; }
+  a:hover, a:visited {
+    text-decoration: none;
+    color: #FFF; }
+
+.flex {
+  display: flex; }
+
+.flex-center, .title, .mission-container, .button-container, .sign-up-button {
+  justify-content: center;
+  text-align: center; }
+
+.nav-container {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  width: 100vw;
+  color: #FFF;
+  height: 14vh;
+  flex-direction: row; }
+
+.title-container-text {
+  justify-content: center;
+  text-align: center;
+  margin-left: 4em; }
+
+.title-nav-container {
+  padding-left: 5em;
+  font-size: 2em; }
+
+.link-container {
+  margin-right: 3em; }
+
+.title-nav {
+  font-size: 1.2em; }
+
+.nav-links {
+  color: #FFF !important;
+  font-weight: 100;
+  font-size: 1.2em !important;
+  padding-top: 1.4em !important;
+  margin: .4em !important;
+  justify-content: right; }
+  .nav-links:visited {
+    color: #FFF; }
+  .nav-links:hover {
+    background: transparent !important; }
+
+.nav-middle-div {
+  flex-grow: 2; }
+
+.landing-image {
+  background: url(../images/landing.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  opacity: 0.96; }
+
+.image-header {
+  display: flex;
+  flex-direction: column; }
+
+.flex-center, .title, .mission-container, .button-container, .sign-up-button {
+  text-align: center;
+  justify-content: center; }
+
+.title {
+  color: #FFF;
+  font-weight: 700;
+  font-size: 5.5em;
+  letter-spacing: 4px; }
+
+.mission-container {
+  padding: 3em; }
+
+.mission-text {
+  font-size: 2.6em;
+  color: #fff;
+  font-weight: 300; }
+
+.button-container {
+  padding: 3em; }
+
+.sign-up-button {
+  border: 3px solid #FFF;
+  padding: .2em .6em;
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: 300;
+  color: #FFF;
+  background: transparent;
+  border-radius: .25rem; }
