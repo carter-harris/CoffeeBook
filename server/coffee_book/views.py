@@ -22,7 +22,6 @@ from rest_framework.reverse import reverse
 # imports from other files
 from .models import User, Coffee, BrewMethod, Review, Region
 from .serializers import UserSerializer, CoffeeSerializer, BrewMethodSerializer, ReviewSerializer, RegionSerializer
-# from .permissions import IsShopOwner
 
 
 #####################################################################################
@@ -74,7 +73,6 @@ class ReviewView(viewsets.ModelViewSet):
             if user_id is not None:
                 queryset = queryset.filter(owner__id=user_id)
             return queryset
-
 
 
 
@@ -131,18 +129,6 @@ def create_user_object(request):
     # Saves user data that was just posted
     user.save()
 
-    # currentUser = authenticate(username=username, password=password)
-    # print('-->>>>>>>CURRENTUSER>>>>>>>>>', currentUser)
-
-
-    # if currentUser is not None:
-        # # c = login(request, currentUser)
-        # c = requests.post('http://localhost:8000/login/', {"username": username, "password": password})
-        # print('cccccc', c.text)
-        # return HttpResponse('/')
-        # return login_user(request)
-    # else:
-    #     return Http404
     return JsonResponse({"success": True})
 
 
@@ -165,13 +151,11 @@ def login_user(request):
             username=req_body['username'],
             password=req_body['password']
             )
-    print('>>>>>>>>LOGIN CURRENT USER>>>>>>>>', authenticated_user)
 
     # If authentication was successful, log the user in
     success = True
     if authenticated_user is not None:
         login(request=request, user=authenticated_user)
-        # return HttpResponseRedirect('/landing')
     else:
         success = False
 
@@ -242,9 +226,6 @@ def create_new_coffee(request):
     # SAVE NEW COFFEE POSTED
     newCoffee.save()
 
-    # return http response with result of login attempt as json
-    print("newCoffee:>>>>>> ", newCoffee)
-
     newCoffee_data = serializers.serialize('json', (newCoffee,))
     return HttpResponse(newCoffee_data, content_type='application/json')
 
@@ -276,28 +257,8 @@ def create_new_review(request):
                                     coffee = coffee
                                     )
 
-
     # SAVE NEW REVIEW POSTED
     newReview.save()
 
-    # return http response with result of login attempt as json
-    print("newReview:>>>>>> ", newReview)
-
     newReview_data = serializers.serialize('json', (newReview,))
     return HttpResponse(newReview_data, content_type='application/json')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
