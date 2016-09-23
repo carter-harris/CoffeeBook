@@ -1,73 +1,56 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>{{passportReivew.title}}</h1>
-      <h1>Passport</h1>
+  <div class="row passport-review-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="passport-review-title-container flex flex-center">
+        <h1 class="general-title">Review</h1>
+      </div>
+  </div>
+
+  <div class="flex flex-center header-row">
+
+    <h1>{{passportReview.coffeeInfo.name}}</h1>
+
+  </div>
+
+  <hr>
+
+  <div class="passport-review-top-container flex flex-center">
+    <div class="passport-review-left-card flex">
+      <img class="passport-review-photo" ng-src="{{passportReview.coffeeInfo.image}}">
+    </div>
+
+    <div class="passport-review-right-card flex">
+      <textarea ng-model="passportReview.review" rows="10" cols="60"></textarea>
+      <button class="coffee-detail-page-button" ng-click="passportReview.reviewCoffee()">Review</button>
+      <button class="coffee-detail-page-button" ng-click="passportReview.deleteReview()">Delete</button>
     </div>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>{{passportReview.coffeeInfo.name}}</h1>
+  <div class="passport-review-middle-container flex flex-center">
+    <div class="flex flex-center">
+      <p class="row-title"><strong>ABOUT:</strong></p>
+    </div>
+    <div class="passport-review-middle-description flex">
+      <p class="passport-review-description">{{passportReview.coffeeInfo.description}}</p>
     </div>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <img ng-src="{{passportReview.coffeeInfo.image}}">
+  <div class="passport-review-bottom-container flex">
+    <div class="passport-review-bottom-card flex">
+      <p class="detail-text"><strong>Region:</strong> {{passportReview.coffeeInfo.region}}</p>
+      <p class="detail-text"><strong>Farm:</strong> {{passportReview.coffeeInfo.farm}}</p>
+      <!-- <p class="detail-text"><strong>Varietal:</strong> {{passportReview.coffeeInfo.varietal}}</p> -->
+      <p class="detail-text"><strong>Altitude:</strong> {{passportReview.coffeeInfo.altitude}}</p>
+      <p class="detail-text"><strong>Process:</strong> {{passportReview.coffeeInfo.process}}</p>
+      <p class="detail-text"><strong>Notes:</strong> {{passportReview.coffeeInfo.notes}}</p>
     </div>
-    <div class="col-sm-6">
-      <textarea ng-model="passportReview.review" rows="5" cols="40"></textarea>
-      <button ng-click="passportReview.reviewCoffee()">Review</button>
-      <button ng-click="passportReview.deleteReview()"></button>
-    </div>
-  </div>
-
-  <hr>
-  <h1>{{passportReview.review}}</h1>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <p>About</p>
-      <p>Description: {{passportReview.coffeeInfo.description}}</p>
+    <div class="passport-review-buttton-container flex">
+      <!-- <a href="/#/passport/{{passportReivew.coffeeInfo.id}}"><button class="coffee-detail-page-button">Review</button></a> -->
     </div>
   </div>
 
-  <hr>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Notes</p>
-      <p>Notes: {{passportReview.coffeeInfo.notes}}</p>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Region: {{passportReview.coffeeInfo.region}}</p>
-      <p>Farm: {{passportReview.coffeeInfo.farm}}</p>
-      <p>Varietal: {{passportReview.coffeeInfo.varietal}}</p>
-      <p>Altitude: {{passportReview.coffeeInfo.altitude}}</p>
-      <p>Process: {{passportReview.coffeeInfo.process}}</p>
-    </div>
-  </div>
-
-
-</div>
-
-<div>
-  <p>Region: {{passportReview.coffeeInfo.region}}</p>
-  <p>Farm: {{passportReview.coffeeInfo.farm}}</p>
-  <p>Varietal: {{passportReview.coffeeInfo.varietal}}</p>
-  <p>Altitude: {{passportReview.coffeeInfo.altitude}}</p>
-  <p>Process: {{passportReview.coffeeInfo.process}}</p>
 </div>
