@@ -1,26 +1,21 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
 <div class="container-fluid">
-
-  <h1>{{landing.username.username}} : Coffees</h1>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Coffeebook</h1>
-    </div>
+  <div class="row coffee-view-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="coffee-view-title-container flex flex-center">
+        <h1 class="general-title">Your Coffees</h1>
+      </div>
   </div>
 
-  <div class="row" ng-repeat="coffee in viewPortal.userCoffees">
-    <div class="col-sm-4">
-      <a href="/#/coffee/{{coffee.id}}"><p><img ng-src="{{coffee.image}}" alt=""></p></a>
+  <div class="flex flex-center header-row">
+    <h1>{{viewPortal.currentUser.username}} : Coffees</h1>
+  </div>
+
+  <hr>
+
+  <div class="coffee-view-container flex">
+    <div class="coffee-view-card" ng-repeat="coffee in viewPortal.userCoffees">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img class="coffee-view-photo" ng-src="{{coffee.image}}"></a>
     </div>
-<!--      <div class="col-sm-4">
-      <p>Bring</p>
-    </div>
-     <div class="col-sm-4">
-      <p>Bring</p>
-    </div> -->
   </div>
 
 </div>

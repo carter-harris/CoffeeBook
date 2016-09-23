@@ -12,7 +12,7 @@ angular.module('coffee_book')
       const viewPortal = this;
 
       // CTRL VARIABLES
-      let currentUser = AuthFactory.getCurrentUser();
+      viewPortal.currentUser = AuthFactory.getCurrentUser();
       // console.log("currentUser portal ctrl: ", currentUser);
 
       PortalFactory.getUserCoffees ()

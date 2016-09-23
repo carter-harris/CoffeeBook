@@ -175,6 +175,67 @@ hr {
   width: 300px;
   justify-content: space-between; }
 
+.coffee-detail-image {
+  background: url(../images/coffee-detail_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.coffee-detail-title-container {
+  margin-top: 9em; }
+
+.method-header-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -2em; }
+
+.coffee-detail-top-container {
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4em 0; }
+
+.coffee-detail-top-card {
+  margin: 1em 2em; }
+
+.coffee-detail-photo {
+  height: 500px;
+  width: 500px;
+  margin: 0 3em; }
+
+.coffee-detail-description {
+  font-size: 1.1em;
+  margin: 1em 3em; }
+
+.coffee-detail-bottom-container {
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4em 0; }
+
+.coffee-detail-bottom-card {
+  flex-direction: column;
+  margin: 1em 2em; }
+
+.detail-text {
+  font-size: 1.2em; }
+
+.coffee-deatil-button-container {
+  margin: 5em;
+  flex-direction: column; }
+
+.coffee-detail-page-button {
+  border: 3px solid #FFF;
+  margin: 2em 2em;
+  padding: .2em .6em;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 300;
+  color: #FFF;
+  background: #b7b7b7;
+  border-radius: .25rem;
+  text-transform: uppercase; }
+  .coffee-detail-page-button:hover {
+    color: #3B3B3B; }
+
 .learn-image {
   background: url(../images/learn_page.jpeg) no-repeat center center;
   background-size: cover;
@@ -231,3 +292,39 @@ hr {
   text-transform: uppercase; }
   .portal-page-button:hover {
     color: #3B3B3B; }
+
+.coffee-view-image {
+  background: url(../images/coffee-view_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.coffee-view-title-container {
+  margin-top: 9em; }
+
+.coffee-view-container {
+  justify-content: space-around;
+  margin: 7em 0; }
+
+.coffee-view-photo {
+  height: 250px;
+  width: 250px;
+  justify-content: space-between; }
+
+.passport-image {
+  background: url(../images/passport_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.passport-title-container {
+  margin-top: 9em; }
+
+.passport-container {
+  justify-content: space-around;
+  margin: 7em 0; }
+
+.passport-photo {
+  height: 250px;
+  width: 250px;
+  justify-content: space-between; }

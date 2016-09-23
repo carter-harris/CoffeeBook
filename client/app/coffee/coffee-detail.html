@@ -1,72 +1,39 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
 <div class="container-fluid">
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>{{coffeeDetail.coffeeinfo}}</h1>
-    </div>
-  </div>
-
-  <div>
-    <p><strong>Name:</strong> {{coffeeDetail.coffeeInfo.name}}</p>
-    <p><strong>Region:</strong> {{coffeeDetail.coffeeInfo.region}}</p>
-    <p><strong>Farm:</strong> {{coffeeDetail.coffeeInfo.farm}}</p>
-    <p><strong>Varietal:</strong> {{coffeeDetail.coffeeInfo.varietal}}</p>
-    <p><strong>Altitude:</strong> {{coffeeDetail.coffeeInfo.altitude}}</p>
-    <p><strong>Process:</strong> {{coffeeDetail.coffeeInfo.process}}</p>
-    <p><strong>Notes:</strong> {{coffeeDetail.coffeeInfo.notes}}</p>
-    <p><strong>Description:</strong> {{coffeeDetail.coffeeInfo.description}}</p>
-    <p> <img ng-src="{{coffeeDetail.coffeeInfo.image}}"> </p>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6">
-      <div>
-        <img src="" alt="">
+  <div class="row coffee-detail-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="coffee-detail-title-container flex flex-center">
+        <h1 class="general-title">Details</h1>
       </div>
+  </div>
+
+  <div class="flex flex-center header-row">
+    <h1>{{coffeeDetail.coffeeInfo.name}}</h1>
+  </div>
+
+  <hr>
+
+  <div class="coffee-detail-top-container flex flex-center">
+    <div class="coffee-detail-top-card flex">
+      <img class="coffee-detail-photo" ng-src="{{coffeeDetail.coffeeInfo.image}}">
     </div>
-    <div class="col-sm-6">
-      <h4>About</h4>
-      <p>This coffee...{{coffee.description}}</p>
+    <div class="coffee-detail-card flex">
+      <p class="coffee-detail-description"><strong>ABOUT:</strong> {{coffeeDetail.coffeeInfo.description}}</p>
     </div>
   </div>
 
   <hr>
 
-<!--   <div class="row">
-    <div class="col-sm-12">
-      <p class="">Tasting Notes</p>
-      <ul ng-repeat="coffee-notes in coffeDetail.notes">
-        <li>{{coffee-notes.notes}}</li>
-      </ul>
+  <div class="coffee-detail-bottom-container flex">
+    <div class="coffee-detail-bottom-card flex">
+      <p class="detail-text"><strong>Region:</strong> {{coffeeDetail.coffeeInfo.region}}</p>
+      <p class="detail-text"><strong>Farm:</strong> {{coffeeDetail.coffeeInfo.farm}}</p>
+      <!-- <p class="detail-text"><strong>Varietal:</strong> {{coffeeDetail.coffeeInfo.varietal}}</p> -->
+      <p class="detail-text"><strong>Altitude:</strong> {{coffeeDetail.coffeeInfo.altitude}}</p>
+      <p class="detail-text"><strong>Process:</strong> {{coffeeDetail.coffeeInfo.process}}</p>
+      <p class="detail-text"><strong>Notes:</strong> {{coffeeDetail.coffeeInfo.notes}}</p>
     </div>
-  </div> -->
-
-  <hr>
-
-  <div class="row">
-    <div class="col-sm-6">
-      <div>
-        <ul>
-          <li><strong>Name:</strong>{{coffeeDetail.detail}}</li>
-          <li><strong>Region:</strong>{{coffeeDetail.region}}</li>
-          <li><strong>Farm:</strong>{{coffeeDetail.farm}}</li>
-          <li><strong>Varietal:</strong>{{coffeeDetail.varietal}}</li>
-          <li><strong>Altitude:</strong>{{coffeeDetail.altitude}}</li>
-          <li><strong>Producer:</strong>{{coffeeDetail.producer}}</li>
-          <li><strong>Process:</strong>{{coffeeDetail.Process}}</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <h4>Brewing Recommendation</h4>
-      <p>You should.....{{coffeeDetail.brewingRecommendation}}</p>
-      <h4>Ratio</h4>
-      <p>Ratio is...{{maybeRatio.coffeeRatio}}</p>
-      <!-- <p class=sign-up-btn><a ng-click="coffeeDetail.brew()" href="/#/brew" "Brew">Brew</a></p> -->
-      <p class=sign-up-btn><a href="/#/passport/{{coffeeDetail.coffeeInfo.id}}">Review</a></p>
+    <div class="coffee-detail-buttton-container flex">
+      <a href="/#/passport/{{coffeeDetail.coffeeInfo.id}}"><button class="coffee-detail-page-button">Review</button></a>
     </div>
   </div>
 

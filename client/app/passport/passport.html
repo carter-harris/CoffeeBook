@@ -1,34 +1,21 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Passport</h1>
-    </div>
+  <div class="row passport-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="passport-title-container flex flex-center">
+        <h1 class="general-title">Passport</h1>
+      </div>
+  </div>
+
+  <div class="flex flex-center header-row">
+    <h1>{{passport.currentUser.username}} : Coffees</h1>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Name: {{passport.currentUser.username}}</h1>
+  <div class="passport-container flex">
+    <div class="passport-card" ng-repeat="coffeeStamp in passport.allCoffees">
+      <a href="/#/passport/{{coffeeStamp.coffee.id}}"><img class="passport-photo" ng-src="{{coffeeStamp.coffee.image}}"></a>
     </div>
   </div>
-
-  <hr>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Coffees</h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12" ng-repeat="coffeeStamp in passport.allCoffees">
-      <a href="/#/passport/{{coffeeStamp.coffee.id}}" title=""><img ng-src="{{coffeeStamp.coffee.image}}"></a>
-    </div>
-  </div>
-
 
 </div>
