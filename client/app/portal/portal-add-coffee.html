@@ -1,3 +1,98 @@
+<div class="container-fluid">
+  <div class="row add-portal-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="add-portal-title-container flex flex-center">
+        <h1 class="general-title">Publish Coffee</h1>
+      </div>
+  </div>
+
+  <div class="flex flex-center header-row">
+    <h1>Upload Coffee</h1>
+  </div>
+
+  <hr>
+
+  <div class="add-portal-container flex">
+    <div class="add-portal-col-one flex">
+      <section class="input-container">
+        <h4>Name</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.name">
+      </section>
+      <section class="input-container">
+        <h4>Farm</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.farm">
+      </section>
+      <section class="input-container">
+        <h4>Altitude</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.altitude">
+      </section>
+      <section class="input-container">
+        <h4>Process</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.process">
+      </section>
+      <section class="input-container">
+        <h4>Notes</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.notes">
+      </section>
+    </div>
+
+
+    <div class="add-portal-col-two flex">
+      <section class="input-container">
+        <h4>Region</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.region">
+      </section>
+      <section class="input-container">
+        <h4>Brew Method</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.brewMethod">
+      </section>
+      <section class="input-container">
+        <h4>Varietal</h4>
+        <input class="add-portal-input" type="text" ng-model="addPortal.varietal">
+      </section>
+      <section class="input-container">
+        <h4>Description</h4>
+        <textarea class="add-portal-textarea" type="text" ng-model="addPortal.description" rows="4.5" cols="29"></textarea>
+      </section>
+    </div>
+    <div class="add-portal-col-three flex">
+      <input class="custom-file-input" type="file" name="img" ng-model="addPortal.image">
+      <button class="add-portal-page-button" ng-click=(addPortal.addCoffee())>Add Coffee</button>
+    </div>
+  </div>
+
+  <div class="add-portal-top-container flex flex-center">
+    <div class="add-portal-top-card flex">
+
+
+
+    </div>
+    <div class="add-portal-card flex">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="add-portal-bottom-container flex">
+    <div class="add-portal-buttton-container flex">
+      <button class="add-portal-page-button" ng-click=(addPortal.addCoffee())>Add Coffee</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- NAV BAR -->
 <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
 

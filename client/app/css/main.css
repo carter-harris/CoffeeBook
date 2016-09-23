@@ -168,7 +168,11 @@ hr {
 
 .coffee-container {
   justify-content: space-around;
-  margin-bottom: 7em; }
+  margin-bottom: 7em;
+  flex-wrap: wrap; }
+
+.coffe-card {
+  flex-wrap: wrap; }
 
 .coffee-photo {
   height: 300px;
@@ -291,6 +295,74 @@ hr {
   border-radius: .25rem;
   text-transform: uppercase; }
   .portal-page-button:hover {
+    color: #3B3B3B; }
+
+.add-portal-image {
+  background: url(../images/add-portal_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.add-portal-title-container {
+  margin-top: 9em; }
+
+.method-header-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -2em; }
+
+.add-portal-container {
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 3em 0; }
+
+.add-portal-col-one {
+  flex-direction: column;
+  margin: 1em 2em; }
+
+.add-portal-col-two {
+  flex-direction: column;
+  margin: 1em 2em; }
+
+.add-portal-col-three {
+  flex-direction: column;
+  margin: 1em 2em; }
+
+.input-container {
+  margin: 1em 0; }
+
+.add-portal-input {
+  width: 16em;
+  font-size: 1.4em; }
+
+.add-portal-textarea {
+  font-size: 1.4em; }
+
+.custom-file-input {
+  margin-top: 9em;
+  margin-left: 4em; }
+
+.add-portal-bottom-container {
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4em 0; }
+
+.coffee-deatil-button-container {
+  margin: 5em;
+  flex-direction: column; }
+
+.add-portal-page-button {
+  border: 3px solid #FFF;
+  margin: 2em 2em;
+  padding: .2em .6em;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 300;
+  color: #FFF;
+  background: #b7b7b7;
+  border-radius: .25rem;
+  text-transform: uppercase; }
+  .add-portal-page-button:hover {
     color: #3B3B3B; }
 
 .coffee-view-image {
