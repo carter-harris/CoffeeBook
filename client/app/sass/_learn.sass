@@ -15,23 +15,28 @@
 
 // LEARN HEADER CONTAINER
 .method-header-container
-  margin: 4em 0 1em 4em
-
-// LEARN COUNTRY TEXT
-.method-text
-  font-weight:
-
+  // margin: 4em 0 1em 4em
+  display: flex
+  justify-content: space-around
+  margin-left: -2em
 
 // LEARN CONTAINER
 .learn-container
+  flex-direction: row
   justify-content: space-around
-  margin-bottom: 7em
+  margin: 4em 0
 
 // LEARN CARDS
-.coffe-card
+.learn-card
+  flex-direction: column
+
+// LEARN COUNTRY TEXT
+.method-text
+  font-weight: $font-weight-light
+  margin-bottom: 1em
 
 // LEARN IMAGE
 .learn-photo
   height: 300px
   width: 300px
-  justify-content: space-between
+  margin: 0 2.4em

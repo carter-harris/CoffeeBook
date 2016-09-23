@@ -1,24 +1,19 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
 <div class="container-fluid">
-  <h1>Hello, {{portal.currentUser.username}}</h1>
+  <div class="row portal-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="portal-title-container flex flex-center">
+        <h1 class="general-title">Company Portal</h1>
+      </div>
+  </div>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Coffeebook</h1>
-    </div>
+  <div class="flex flex-center header-row">
+    <h1>Hello, {{portal.currentUser.username}}</h1>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <p class=sign-up-btn><a href="/#/portal/view" "View Coffees">View Coffees</a></p>
-    </div>
-    <div class="col-sm-6">
-      <p class=sign-up-btn><a href="/#/portal/add" "Add Coffees">Add Coffees</a></p>
-    </div>
+  <div class=" portal-button-container flex flex-center">
+    <a href="/#/portal/view" "View Coffees"><button class="portal-page-button" type="text">View Coffees</button></a>
+    <a href="/#/portal/add" "View Coffees"><button class="portal-page-button" type="text">Add Coffees</button></a>
   </div>
-
 </div>

@@ -174,3 +174,60 @@ hr {
   height: 300px;
   width: 300px;
   justify-content: space-between; }
+
+.learn-image {
+  background: url(../images/learn_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.learn-title-container {
+  margin-top: 9em; }
+
+.method-header-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -2em; }
+
+.learn-container {
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 4em 0; }
+
+.learn-card {
+  flex-direction: column; }
+
+.method-text {
+  font-weight: 300;
+  margin-bottom: 1em; }
+
+.learn-photo {
+  height: 300px;
+  width: 300px;
+  margin: 0 2.4em; }
+
+.portal-image {
+  background: url(../images/portal_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.portal-title-container {
+  margin-top: 9em; }
+
+.portal-button-container {
+  margin: 5em; }
+
+.portal-page-button {
+  border: 3px solid #FFF;
+  margin: 0 2em;
+  padding: .2em .6em;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 300;
+  color: #FFF;
+  background: #b7b7b7;
+  border-radius: .25rem;
+  text-transform: uppercase; }
+  .portal-page-button:hover {
+    color: #3B3B3B; }
