@@ -20,33 +20,42 @@ a {
 .flex {
   display: flex; }
 
-.flex-center, .title, .mission-container, .button-container, .sign-up-button {
+.flex-center, .title, .general-title, .mission-container, .button-container, .sign-up-button {
   justify-content: center;
   text-align: center; }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #cacaca, #ccc); }
+
 .nav-container {
   display: flex;
+  flex-direction: row;
   background-color: transparent;
   border: none;
   width: 100vw;
   color: #FFF;
-  height: 14vh;
-  flex-direction: row; }
+  height: 14vh; }
 
 .title-container-text {
   justify-content: center;
   text-align: center;
-  margin-left: 4em; }
+  margin-left: 4em;
+  text-transform: uppercase; }
 
 .title-nav-container {
   padding-left: 5em;
-  font-size: 2em; }
+  font-size: 2em;
+  text-transform: uppercase; }
 
 .link-container {
   margin-right: 3em; }
 
 .title-nav {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  text-transform: uppercase; }
 
 .nav-links {
   color: #FFF !important;
@@ -54,7 +63,8 @@ a {
   font-size: 1.2em !important;
   padding-top: 1.4em !important;
   margin: .4em !important;
-  justify-content: right; }
+  justify-content: right;
+  text-transform: uppercase; }
   .nav-links:visited {
     color: #FFF; }
   .nav-links:hover {
@@ -64,7 +74,7 @@ a {
   flex-grow: 2; }
 
 .landing-image {
-  background: url(../images/landing.jpeg) no-repeat center center;
+  background: url(../images/landing_page.jpeg) no-repeat center center;
   background-size: cover;
   height: 100vh;
   opacity: 0.96; }
@@ -73,15 +83,16 @@ a {
   display: flex;
   flex-direction: column; }
 
-.flex-center, .title, .mission-container, .button-container, .sign-up-button {
+.flex-center, .title, .general-title, .mission-container, .button-container, .sign-up-button {
   text-align: center;
   justify-content: center; }
 
-.title {
+.title, .general-title {
   color: #FFF;
   font-weight: 700;
   font-size: 5.5em;
-  letter-spacing: 4px; }
+  letter-spacing: 4px;
+  text-transform: uppercase; }
 
 .mission-container {
   padding: 3em; }
@@ -89,7 +100,8 @@ a {
 .mission-text {
   font-size: 2.6em;
   color: #fff;
-  font-weight: 300; }
+  font-weight: 300;
+  text-transform: uppercase; }
 
 .button-container {
   padding: 3em; }
@@ -102,4 +114,63 @@ a {
   font-weight: 300;
   color: #FFF;
   background: transparent;
-  border-radius: .25rem; }
+  border-radius: .25rem;
+  text-transform: uppercase; }
+
+.sign-up-button:hover {
+  color: #1F1F1F;
+  background: #EBEBEB; }
+
+.about-image {
+  background: url(../images/about_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.about-title-container {
+  margin-top: 9em; }
+
+.header-row {
+  margin: 7em 0 3.5em 0; }
+
+.about-story-container {
+  flex-direction: column;
+  margin: 4em; }
+
+.about-button-container {
+  margin: 4em;
+  justify-content: space-around; }
+
+.about-page-button {
+  border: 3px solid #FFF;
+  padding: .2em .6em;
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: 300;
+  color: #FFF;
+  background: #b7b7b7;
+  border-radius: .25rem;
+  text-transform: uppercase; }
+  .about-page-button:hover {
+    color: #3B3B3B; }
+
+.coffee-image {
+  background: url(../images/coffee_page.jpeg) no-repeat center center;
+  background-size: cover;
+  height: 90vh;
+  opacity: 0.96; }
+
+.coffee-title-container {
+  margin-top: 9em; }
+
+.country-header-container {
+  margin: 4em 0 1em 4em; }
+
+.coffee-container {
+  justify-content: space-around;
+  margin-bottom: 7em; }
+
+.coffee-photo {
+  height: 300px;
+  width: 300px;
+  justify-content: space-between; }

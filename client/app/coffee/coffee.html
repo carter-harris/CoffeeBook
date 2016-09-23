@@ -1,50 +1,45 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
-<h1>{{coffee.title}}</h1>
 <div class="container-fluid">
-  <h1>{{coffee.currentUser}}</h1>
-  <h1>{{coffee.currentUserType}}</h1>
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Coffeebook</h1>
-    </div>
+  <div class="row coffee-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="coffee-title-container flex flex-center">
+        <h1 class="general-title">Coffee</h1>
+      </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Latin America</p>
-    </div>
+  <div class="flex flex-center header-row">
+    <h1>Coffees Around the World</h1>
   </div>
-  <div class="row">
-    <div class="col-sm-12" ng-repeat="coffee in coffee.latinAmerica">
-      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
+
+  <hr>
+
+  <div class="country-header-container flex">
+    <h3 class="country-text">Latin America</h3>
+  </div>
+  <div class="coffee-container flex">
+    <div class="coffee-card" ng-repeat="coffee in coffee.latinAmerica">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img class="coffee-photo" ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Africa</p>
-    </div>
+  <div class="country-header-container flex">
+    <h3 class="country-text">Africa</h3>
   </div>
-  <div class="row">
-    <div class="col-sm-12" ng-repeat="coffee in coffee.africa">
-      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
+  <div class="coffee-container flex">
+    <div class="coffee-card" ng-repeat="coffee in coffee.africa">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img class="coffee-photo" ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Oceania</p>
-    </div>
+  <div class="country-header-container flex">
+    <h3 class="country-text">Oceania</h3>
   </div>
-  <div class="row">
-    <div class="col-sm-12" ng-repeat="coffee in coffee.oceania">
-      <a href="/#/coffee/{{coffee.id}}" title=""><img ng-src="{{coffee.image}}"></a>
+  <div class="coffee-container flex">
+    <div class="coffee-card" ng-repeat="coffee in coffee.oceania">
+      <a href="/#/coffee/{{coffee.id}}" title=""><img class="coffee-photo" ng-src="{{coffee.image}}"></a>
     </div>
   </div>
 

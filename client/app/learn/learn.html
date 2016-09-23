@@ -1,3 +1,36 @@
+<div class="container-fluid">
+  <div class="row coffee-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="coffee-title-container flex flex-center">
+        <h1 class="general-title">Learn</h1>
+      </div>
+  </div>
+
+  <div class="flex flex-center header-row">
+    <h1>Brew Guides</h1>
+  </div>
+
+  <hr>
+
+  <div class="method-header-container flex">
+    <h3 class="method-text">Chemex</h3>
+  </div>
+  <div class="learn-container flex">
+    <div class="learn-card" ng-repeat="coffee in coffee.latinAmerica">
+      <a href="/#/learn-chemex"><img class="coffee-photo" src="app/images/chemex-stock.jpg" alt=""></a>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
 <!-- NAV BAR -->
 <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
 

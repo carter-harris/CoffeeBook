@@ -1,69 +1,26 @@
-<!-- NAV BAR -->
-<div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
-
-<h1>{{ about.title }}</h1>
 <div class="container-fluid">
+  <div class="row about-image image-header">
+    <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div>
+      <div class="about-title-container flex flex-center">
+        <h1 class="general-title">About</h1>
+      </div>
+  </div>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Coffeebook</h1>
-    </div>
+  <div class="flex flex-center header-row">
+    <h1>Coffee Book</h1>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p>{{about.story}}</p>
-    </div>
+  <div class="about-story-container flex flex-center">
+    <p class="">On average, 578 million cups of coffee are consumed each day. A growing number of those cups consumed are from home brewing. Coffeebook wants to bring transparency on how to make high quality coffee. Coffeebook allows companies to upload coffees with extensive details and brewing recommendations for users. Users can use Coffeebook to explore coffees uploaded and review the coffees for their personal passport. Allowing users to document their tastings, learn about new brewing methods and enjoy the coffee how the company suggests it should be. Companies go through extensive tastings and cuppings to decide what the best brewing methods are for each coffee they roast. Begin exploring the coffees are start making entries in your passport! If you are company wanting to join Coffeebook, shoot an email to email@email.com.</p>
   </div>
 
   <hr>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <p class=sign-up-btn><a href="/#/coffee" "Coffee Page">Coffee</a></p>
-      <p class=sign-up-btn><a href="/#/login" "Sign Up">Sign Up</a></p>
-      <p class=sign-up-btn><a href="/#/learn" "Learn Page">Learn</a></p>
-    </div>
+  <div class=" about-button-container flex flex-center">
+    <a href="/#/coffee"><button class="about-page-button" type="text">Coffe</button></a>
+    <a href="/#/login"><button class="about-page-button" type="text">Sign Up</button></a>
+    <a href="/#/learn"><button class="about-page-button" type="text">Learn</button></a>
   </div>
-
 </div>
-
-
-
-
-
-<!-- NAV BAR -->
-<!-- <div ng-include="'app/nav/nav.html'" ng-controller="NavCtrl as nav"></div> -->
-<!--  -->
-<!-- <h1>{{ about.title }}</h1> -->
-<!-- <div class="container-fluid"> -->
-<!--  -->
-<!--   <div class="row"> -->
-<!--     <div class="col-sm-12"> -->
-<!--       <h1>Coffeebook</h1> -->
-<!--     </div> -->
-<!--   </div> -->
-<!--  -->
-<!--   <hr> -->
-<!--  -->
-<!--   <div class="row"> -->
-<!--     <div class="col-sm-12"> -->
-<!--       <p>{{about.story}}</p> -->
-<!--     </div> -->
-<!--   </div> -->
-<!--  -->
-<!--   <hr> -->
-<!--  -->
-<!--   <div class="row"> -->
-<!--     <div class="col-sm-12"> -->
-<!--       <p class=sign-up-btn><a href="/#/coffee" "Coffee Page">Coffee</a></p> -->
-<!--       <p class=sign-up-btn><a href="/#/login" "Sign Up">Sign Up</a></p> -->
-<!--       <p class=sign-up-btn><a href="/#/learn" "Learn Page">Learn</a></p> -->
-<!--     </div> -->
-<!--   </div> -->
-<!--  -->
-<!-- </div> -->
-<!--  -->
-<!--  -->
