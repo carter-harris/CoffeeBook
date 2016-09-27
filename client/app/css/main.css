@@ -168,11 +168,7 @@ hr {
 
 .coffee-container {
   justify-content: space-around;
-  margin-bottom: 7em;
-  flex-wrap: wrap; }
-
-.coffe-card {
-  flex-wrap: wrap; }
+  margin-bottom: 7em; }
 
 .coffee-photo {
   height: 300px;
@@ -376,7 +372,11 @@ hr {
 
 .coffee-view-container {
   justify-content: space-around;
-  margin: 7em 0; }
+  margin: 7em 0;
+  flex-wrap: wrap; }
+
+.coffe-view-card {
+  flex-wrap: wrap; }
 
 .coffee-view-photo {
   height: 250px;

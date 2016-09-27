@@ -23,9 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rd28z1q0^9$0h=pgvr4yblsn6lhua7pk5^hqz@cbj_ia!yg4$@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True #local
+DEBUG = False #deploy
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['coffeebook.site'] #might need to take out sites for local
+# ALLOWED_HOSTS = [] #local dev
 
 
 # Application definition
@@ -61,6 +63,7 @@ ROOT_URLCONF = 'capProject.urls'
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:8080',
     'localhost:8080',
+    'coffeebook.site', #can stay
 )
 
 TEMPLATES = [
@@ -126,7 +129,7 @@ AUTH_USER_MODEL = 'coffee_book.User'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -138,7 +141,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/Users/hamiltonharris/workspace/capstone/bed-capstone/CoffeeBook/server/'
-MEDIA_URL = '/media/'
